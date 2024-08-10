@@ -1,6 +1,6 @@
 # Ernest Baker - Systems Reliability Engineer & DevOps Specialist
 
-## 👋 Welcome to my [GitHub] Portfolio(http://crow50.github.io/ernest-portfolio/)!
+## 👋 Welcome to my [GitHub Portfolio](http://crow50.github.io/ernest-portfolio/)!
 
 I’m Ernest, a seasoned **Systems Reliability Engineer** and **DevOps Specialist** with a passion for optimizing infrastructure and automating processes. With over a decade of experience in IT governance, infrastructure design, and systems integration, I've honed my skills in Python, Go, automation, and network/database administration. This repository is a showcase of my work, skills, and achievements in the tech world.
 
