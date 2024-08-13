@@ -7,7 +7,7 @@ body {
 }
 
 html {
-    scroll-padding-top: 210px; /* Adjust this value based on your header's height */
+    scroll-padding-top: 210px;
 }
 
 header {
@@ -17,7 +17,7 @@ header {
     text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensures the header stays above other content */
+    z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -56,7 +56,7 @@ section {
 
 .skill-rating {
     font-size: 1.2em;
-    color: #FFD700; /* Gold color for high ranking */
+    color: #FFD700;
 }
 
 .skill-bar {
@@ -133,8 +133,8 @@ section {
 
 .social-icons {
     display: flex;
-    justify-content: center; /* This centers the links */
-    gap: 20px; /* Adjusts the space between the icons */
+    justify-content: center;
+    gap: 20px;
 }
 
 .social-icons a {
