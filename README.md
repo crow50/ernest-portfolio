@@ -2,16 +2,16 @@
 
 ## 👋 Welcome to my [GitHub Portfolio](http://crow50.github.io/ernest-portfolio/)!
 
-I’m Ernest, a seasoned **Systems Reliability Engineer** and **DevOps Specialist** with a passion for optimizing infrastructure and automating processes. With over a decade of experience in IT governance, infrastructure design, and systems integration, I've honed my skills in Python, Go, automation, and network/database administration. This repository is a showcase of my work, skills, and achievements in the tech world.
+I’m Ernest, a seasoned **Systems and Software Aalyst** with extensive **Systems Administration** experience and a passion for optimizing infrastructure and automating processes. With over a decade of experience in IT governance, infrastructure design, and systems integration, I've honed my skills in Python, automation, and network/database administration. This repository is a showcase of my work, skills, and achievements in the tech world.
 
 ## 🛠️ Core Competencies
 
 - **Systems Engineering**: IT Governance, Infrastructure & Network Design, Project Management
-- **Programming**: Python, Go, SQL, YAML, Bash
+- **Programming**: Python, SQL, BASH, YAML, Markdown, HTML, Go
 - **Database Management**: SQL Server, Oracle, MySQL, PostgreSQL
 - **Platforms & Virtualization**: Windows Server, Linux, VMware, Proxmox, Docker
 - **Networking**: VLANs, Subnetting, VPNs, Load Balancing, 10GBit Networking, iSCSI, TCP/IP
-- **DevOps Tools**: GitLab, Prometheus, Grafana, Consul, Vault, Ansible, Traefik
+- **DevOps Tools**: Git, Github Actions, Ansible
 
 ## 🚀 Key Projects
 
