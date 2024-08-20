@@ -1,4 +1,4 @@
-# Ernest Baker - Systems Reliability Engineer & DevOps Specialist
+# Ernest Baker - Systems and Software Analyst & Systems Administrator
 
 ## 👋 Welcome to my [GitHub Portfolio](http://crow50.github.io/ernest-portfolio/)!
 
