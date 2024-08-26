@@ -11,25 +11,29 @@ import pandas as pd
 from datetime import datetime
 import os
 from configparser import ConfigParser
-import logging
+import logging, logging.handlers
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(filename='extract.log', level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.getLogger().addHandler(logging.StreamHandler())
 
 def get_db_params(config_file, section):
-    """
-    Retrieves database configuration parameters from a given section of the config file.
-    """
+    '''
+    get_db_params(config_file, section)
+    Sets the parameters for the ConfigParser, currently set to prod
+    '''
     parser = ConfigParser()
     parser.read(config_file)
     if parser.has_section(section):
+        logging.info('Config file loaded')
         return {param[0]: param[1] for param in parser.items(section)}
     else:
         raise Exception(f'Section {section} not found in the {config_file} file')
-    
+
 def connect_to_db(db_params):
-    """
-    Connects to the database using SQLAlchemy and returns the engine and session objects.
-    """
+    '''
+    Connecting to the database using the items returned from the ConfigParser
+    '''
     try:
         logging.info('Connecting to the PostgreSQL database...')
         engine = create_engine(f"postgresql+psycopg2://{db_params['user']}:{db_params['password']}@{db_params['host']}/{db_params['database']}")
@@ -41,38 +45,49 @@ def connect_to_db(db_params):
         raise
 
 def reflect_views(engine, schema, desired_views):
-    """
-    Reflects only the desired views from the specified schema.
-    """
-    metadata = MetaData()
-    inspector = inspect(engine)
-    all_view_names = inspector.get_view_names(schema=schema)
-    view_names = [view for view in all_view_names if view in desired_views]
-    return {view_name: 
-            Table(view_name, metadata, autoload_with=engine, schema=schema) 
-            for view_name in view_names}
+    '''
+    Only keep the desired views in memory
+    '''
+    try:
+        metadata = MetaData()
+        inspector = inspect(engine)
+        all_view_names = inspector.get_view_names(schema=schema)
+        view_names = [view for view in all_view_names if view in desired_views]
+        logging.debug(f'Reflected: {view_names}')
+        logging.info('Successfully refelected views')
+        return {view_name: 
+                Table(view_name, metadata, autoload_with=engine, schema=schema) 
+                for view_name in view_names}
+    except Error as error:
+        logging.error('Unable to reflect views')
 
 def process_meter_data(session, meters_view, meter_voltage_intervals_view, 
                        circuit_number, start_date, end_date):
-    """
-    Processes meter data within the given circuit and time range.
-    """
+    '''
+    We begin by taking our query parameters to query the meters_view and only select the meters that
+    are in our desired circuit.
+    '''
+    logging.info(f'Executing query for meters matching {circuit_number}')
+    logging.debug(f'CIRCUIT: {circuit_number}', 
+                  f'QUERY START DATE: {start_date}', 
+                  f'QUERY END DATE: {end_date}')
     matching_meters = session.query(meters_view).filter(
         meters_view.c.circuit_common_id == circuit_number,
         meters_view.c.updated_at > start_date
-    ).all()  
+    ).all()  # Refactored to fetch all at once, or consider yield_per()
     
     output_dir = 'output_by_sp_id'
     os.makedirs(output_dir, exist_ok=True)
-    
+    logging.debug(f'OUTPUT DIRECTORY MADE {output_dir}')
     for meter in matching_meters:
         process_single_meter(session, meter, meter_voltage_intervals_view, 
                              start_date, end_date, output_dir)
         
 def process_single_meter(session, meter, meter_voltage_intervals_view, start_date, end_date, output_dir):
-    """
-    Processes a single meter, querying voltage data and saving the results.
-    """
+    '''
+    After we get all of the meters that match our circuit, we take one ESN at a time, and query the
+    voltages for that meter for the given timeframe.
+    '''
     df_meters = pd.DataFrame([meter])
     logging.info(f"Processing: {df_meters.at[0, 'sp_common_id']} ")
     meter_voltage_intervals_results = session.query(meter_voltage_intervals_view).filter(
@@ -83,21 +98,30 @@ def process_single_meter(session, meter, meter_voltage_intervals_view, start_dat
     
     df_voltage_intervals = pd.DataFrame([dict(row) for row in meter_voltage_intervals_results])
     if df_voltage_intervals.empty:
+        '''
+        If there is no voltage information, the results from the meters_view get written to a separate file
+        '''
+        logging.info(f"No data for {df_meters.at[0, 'sp_common_id']} during selected timeframe")
         save_no_data(df_meters)
     else:
         process_voltage_intervals(df_meters, df_voltage_intervals, output_dir)
 
 def save_no_data(df_meters):
-    """
-    Saves meter data with no associated voltage data to a separate file.
-    """
+    '''
+    The process to write empty voltage values
+    '''
     no_data_file = "SP_W_No_Data.xlsx"
-    write_to_excel(df_meters, no_data_file, str(df_meters.at[0, 'sp_common_id']))
+    df_filtered = remove_timezone(df_meters)
+    write_to_excel(df_meters, no_data_file, str(df_meters.at[0, 'sp_common_id']),
+                   record_id=str(df_meters.at[0, 'sp_common_id']))
 
 def process_voltage_intervals(df_meters, df_voltage_intervals, output_dir):
-    """
-    Processes and formats voltage intervals before merging with meter data and saving.
-    """
+    '''
+    With the raw, but filtered voltage data, we need to do a bit more massaging.
+    We start by changing the number of decimal places for the values,
+    Then we rename the ID to ESN since that makes sense and will be easier for a later step
+    Finally, we merge the now massage voltage data onto our meter data before proceeding.
+    '''
     df_voltage_intervals['value'] = df_voltage_intervals['value'].astype(float).round(3)
     df_pivot = df_voltage_intervals.pivot(index=['meter_id', 'interval_time'], 
                                           columns='unit', values='value')
@@ -108,9 +132,11 @@ def process_voltage_intervals(df_meters, df_voltage_intervals, output_dir):
     save_filtered_data(df_filtered, output_dir)
 
 def select_and_rename_columns(df_filtered):
-    """
-    Selects relevant columns and renames them for clarity, handling missing data.
-    """
+    '''
+    since we don't need 72 columns, this process filters it down to the ones we want
+    It also writes null values in the columns without data.
+    This is typical in residential meters as they don't have B and C voltage
+    '''
     desired_columns = ['sp_common_id', 'interval_time', 'serial_number',
                        'AVG_V(a)', 'AVG_V(b)', 'AVG_V(c)',
                        'MAX_V(a)', 'MAX_V(b)', 'MAX_V(c)',
@@ -118,56 +144,58 @@ def select_and_rename_columns(df_filtered):
     for col in desired_columns:
         if col not in df_filtered.columns:
             df_filtered[col] = pd.NA
-    df_filtered = df_filtered[desired_columns].rename(columns={'sp_common_id': 'SP_ID', 'interval_time': 'TIME', 
+    df_filtered = df_filtered[desired_columns].rename(columns={'sp_common_id': 'SP_ID',
+                                                               'interval_time': 'TIME', 
                                                       'serial_number': 'SERIAL_NUMBER'})
     df_filtered = remove_timezone(df_filtered)
-    df_filtered['Month'] = pd.to_datetime(df_filtered['TIME']).dt.strftime('%Y-%m')
     return df_filtered
 
 def save_filtered_data(df_filtered, output_dir):
-    """
-    Saves the filtered and processed data to an Excel file, grouped by month.
-    """
-    grouped = df_filtered.groupby(['Month'])
-    for month, group in grouped:
-        file_name = f"{output_dir}/SP_ID_{df_filtered.at[0,'SP_ID']}.xlsx"
-        write_to_excel(group, file_name, month)
+    '''
+    Process to save the filtered and massaged data
+    '''
+    file_name = f"{output_dir}/SP_ID_{df_filtered.at[0,'SP_ID']}.xlsx"
+    write_to_excel(df_filtered, file_name, df_filtered.at[0,'SP_ID'], record_id=df_filtered.at[0,'SP_ID'])
 
-def write_to_excel(df, file_name, sheet_name):
-    """
-    Writes the DataFrame to an Excel file, either creating a new file or appending to an existing one.
-    """
+def write_to_excel(df, file_name, sheet_name, record_id):
+    '''
+    Excel writing engine
+    If there is no file for a given sp, this process will create one
+    Then it will append to that file for each month requested
+    '''
     if os.path.isfile(file_name):
         with pd.ExcelWriter(file_name, mode='a', engine='openpyxl', if_sheet_exists='new') as writer:
             df.to_excel(writer, sheet_name=sheet_name, index=False)
     else:
         with pd.ExcelWriter(file_name, mode='w', engine='openpyxl') as writer:
             df.to_excel(writer, sheet_name=sheet_name, index=False)
+    logging.info(f"{record_id} complete")
 
 def remove_timezone(df):
-    """
-    Removes timezone information from datetime columns in the DataFrame.
-    """
+    '''
+    Excel doesn't like timezone aware columns, this removes them.
+    '''
     for col in df.columns:
         if pd.api.types.is_datetime64tz_dtype(df[col]):
             df[col] = df[col].dt.tz_localize(None)
     return df
 
 if __name__ == '__main__':
-    """
-    Entry point for the script. Retrieves configuration, connects to the database, and processes data.
-    """
-    db_config_file = 'postgres_db.ini'  # Ensure this file is not shared publicly.
-    db_section = 'my_database_section'
+    '''
+    This is the real beginning of the process. 
+    Values changed here will modify the entire output even slightly.
+    '''
+    db_config_file = 'postgres_db.ini'
+    db_section = 'prod'
     
     db_params = get_db_params(db_config_file, db_section)
     engine, session = connect_to_db(db_params)
     
-    reflected_views = reflect_views(engine, 'schema_name', ['view1', 'view2'])
+    reflected_views = reflect_views(engine, 'client', ['meters', 'meter_voltage_intervals'])
     
     circuit_number = input("Circuit Number: ")
     start_date = datetime(2023, 1, 1)
     end_date = datetime(2023, 12, 31)
     
-    process_meter_data(session, reflected_views['view1'], 
-                       reflected_views['view2'], circuit_number, start_date, end_date)
+    process_meter_data(session, reflected_views['meters'], 
+                       reflected_views['meter_voltage_intervals'], circuit_number, start_date, end_date)
