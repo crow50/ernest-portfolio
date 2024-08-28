@@ -1,21 +1,38 @@
-## Description
-Please include a summary of the change and which issue is fixed. 
-List any dependencies that are required for this change.
+# **Title**
+<!-- A clear and concise title for the pull request -->
 
-## Type of change
-Please delete options that are not relevant.
+### **Summary**
+<!-- Briefly describe what changes are introduced in this pull request. Highlight any key features, bug fixes, or improvements. -->
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+## **Linked Issues:**
+<!-- List any issues that this pull request addresses. Use references like `Fixes #IssueNumber` to automatically close issues when the pull request is merged. -->
+- Fixes #IssueNumber
+- Related to #IssueNumber
 
-## Checklist:
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
+## **Changes Made:**
+<!-- Outline the specific changes made in this pull request. This can include new features, changes to existing features, bug fixes, or refactoring. -->
+- Change 1
+- Change 2
+- Change 3
+
+## **Testing Instructions:**
+<!-- Describe the steps required to test the changes made in this pull request. Include any setup or configuration steps, as well as specific cases to test. -->
+1. Step 1
+2. Step 2
+3. Step 3
+
+## **Screenshots (if applicable):**
+<!-- Include screenshots or gifs to illustrate the changes, especially for UI/UX updates. -->
+
+## **Checklist:**
+<!-- Ensure that all relevant tasks have been completed before merging. -->
+- [ ] Code follows the project’s style guidelines
+- [ ] Documentation has been updated (if necessary)
+- [ ] Tests have been added/updated (if necessary)
+- [ ] All checks have passed (CI/CD)
+- [ ] PR is ready for review
+
+### **Additional Notes:**
+<!-- Include any additional information that might be useful for reviewers. This could be context around certain decisions, known issues, or anything else relevant to the pull request. -->
+- Note 1
+- Note 2
