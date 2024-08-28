@@ -191,11 +191,11 @@ if __name__ == '__main__':
     db_params = get_db_params(db_config_file, db_section)
     engine, session = connect_to_db(db_params)
     
-    reflected_views = reflect_views(engine, 'client', ['meters', 'meter_voltage_intervals'])
+    reflected_views = reflect_views(engine, 'schema', ['view1', 'view2'])
     
     circuit_number = input("Circuit Number: ")
     start_date = datetime(2023, 1, 1)
     end_date = datetime(2023, 12, 31)
     
-    process_meter_data(session, reflected_views['meters'], 
-                       reflected_views['meter_voltage_intervals'], circuit_number, start_date, end_date)
+    process_meter_data(session, reflected_views['view1'], 
+                       reflected_views['view2'], circuit_number, start_date, end_date)
