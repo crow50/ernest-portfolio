@@ -1,26 +1,27 @@
-## Issue Type
-Please select the type of issue you're reporting:
+# **Title**
+<!-- A concise title for the issue -->
 
-- [ ] Bug Report
-- [ ] Feature Request
-- [ ] Documentation Update
-- [ ] Question
+### **Summary:**
+<!-- Briefly describe what this issue is about and why it's needed. This can be a goal, a problem to solve, or an enhancement to be made. -->
 
-## Description
-Please provide a brief description of the issue or feature request:
+## **Tasks:**
+<!-- List the specific tasks or steps needed to complete this issue. -->
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
 
-## Steps to Reproduce (for bug reports)
-Please describe the steps required to reproduce the issue. Include any code snippets, screenshots, or logs that might help:
+## **Acceptance Criteria:**
+<!-- Define what success looks like for this issue. This can include specific conditions that must be met. -->
+- [ ] Criteria 1
+- [ ] Criteria 2
+- [ ] Criteria 3
 
-1. Step 1
-2. Step 2
-3. Step 3
+## **Context/Reminder:**
+<!-- Any additional context, reminders, or notes that might help while working on this issue. This can include links to resources, documentation, or related issues. -->
+- Context or reminder 1
+- Context or reminder 2
 
-## Expected Behavior
-Please describe what you expected to happen:
-
-## Actual Behavior
-Please describe what actually happened:
-
-## Additional Context
-Please provide any additional information that may be helpful, such as environment details (e.g., operating system, Python version), or links to related issues/pull requests:
+## **Related Issues/Milestones:**
+<!-- Reference any related issues or milestones that this issue is a part of. -->
+- Relates to #IssueNumber
+- Part of Milestone [Milestone Name]
