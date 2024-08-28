@@ -6,7 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [2.1.0-alpha] - 2024-08-28
 
+### Added
+- Created [base.html](../src/templates/base.html) for dynamic website as a Flask project
+
 ### Changed
+- Refactored [index.html](../src/templates/index.html) for Flask syntax and referencing new [base template](../src/templates/base.html)
+- Fixed nooptions in [app.py](../app.py)
 - Refactored [app.py](../app.py) to include logging and arguments
 
 ## [2.0.0-alpha] - 2024-08-28

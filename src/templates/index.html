@@ -1,61 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<!-- Basic Meta Tags -->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ernest Baker - Systems and Software Analyst with extensive experience in IT governance, infrastructure design, and systems integration.">
-    <meta name="keywords" content="Linux Administrator, Administrator, Systems Analyst, Software Analyst, Systems Engineer, IT governance, infrastructure design, systems integration, Ernest Baker, Python Developer">
-    <meta name="author" content="Ernest Baker">
-	
-	<!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Ernest Baker - Systems and Software Analyst Portfolio">
-    <meta property="og:description" content="Explore the portfolio of Ernest Baker, a Systems and Software Analyst with expertise in IT governance, automation, infrastructure design, and systems integration.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://crow50.github.io/ernest-portfolio/">
-    <meta property="og:image" content="https://raw.githubusercontent.com/crow50/ernest-portfolio/main/images/Resized_American_Bulldog_Crow_Avatar.png">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ernest Baker - Systems and Software Analyst Portfolio">
-    <meta name="twitter:description" content="Explore the portfolio of Ernest Baker, a Systems and Software Analyst with expertise in IT governance, automation, infrastructure design, and systems integration.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/crow50/ernest-portfolio/main/images/Resized_American_Bulldog_Crow_Avatar.png">
-	
-    <!-- Robots Meta Tag -->
-    <meta name="robots" content="index, follow">
-
-    <!-- Canonical Link -->
-    <link rel="canonical" href="https://crow50.github.io/ernest-portfolio/">
-
-	<!-- Stylesheet -->
-    <link rel="stylesheet" href="../static/css/main.css">
-	
-	<!-- Favicon -->
-    <link rel="icon" href="../static/images/favicon.ico">
-
-    <title>Ernest Baker - Professional Resume</title>
-
-    
-</head>
+{% extends "base.html" %}
+{% block content %}
 <body>
-    <header>
-        <h1>Ernest L. Baker</h1>
-        <p>Systems Engineer | ernestleroybaker@gmail.com | (719) 229-7102</p>
-        <nav>
-			<ul>
-				<li><a href="#summary">Summary</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#experience">Experience</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<!-- <li><a href="#testimonials">Testimonials</a></li> -->
-				<li><a href="#achievements">Achievements</a></li>
-				<li><a href="#education">Education</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-        </nav>
-    </header>
-
    <!-- Main Content -->
     <section id="summary">
         <h2>Professional Summary</h2>
@@ -68,13 +13,12 @@ operational excellence.</p>
 
     <section id="skills">
         <h2>Technical Skills</h2>
-        <!-- Example skill with progress bar -->
         <p>Systems Engineering: IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT</p>
         <p>Programming Languages: Python, SQL, BASH, YAML, Markdown, HTML, Go</p>
         <p>Database Management: SQL Server, Oracle, MySQL, PostgreSQL</p>
         <p>Platforms & Virtualization: Windows Server, Linux, VMware, Proxmox, Docker</p>
         <p>Networking: VLANs, Subnetting, VPNs, Load Balancing, 10GBit Networking, iSCSI, Ethernet, Cellular, TCP/IP</p>
-        <p>Tools & Applications: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, GitLab, Git, Github Actions, Ansible</p>
+        <p>Tools & Applications: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, Git, Github, Github Actions, Ansible</p>
         <!-- <div class="skill">
 			<p>Python <span class="skill-rating">A</span></p>
             <div class="skill-bar">
@@ -362,17 +306,5 @@ operational excellence.</p>
 
         </form>
     </section>
-    
-	
-    <footer>
-        <p>© 2024 Ernest Baker. All rights reserved.</p>
-        <ul>
-            <li><a href="https://github.com/crow50">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/ernestlbaker/">LinkedIn</a></li>
-        </ul>
-    </footer>
-
-    <script src="scripts/main.js"></script>
-	
 </body>
-</html>
+{% endblock %}

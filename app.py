@@ -23,7 +23,7 @@ License:
     GPL 3.0
 
 Usage:
-    python app.py [nooptions]
+    python app.py [options]
 """
 
 import logging
