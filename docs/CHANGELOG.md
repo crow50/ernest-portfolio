@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.0.1] - 2024-08-28
 
 ### Changed
+- Added enhancement/dynamic-website branch to [deploy.yml](../.github/workflows/deploy.yml) for testing of changes
 - Moved previous site files to [src/](../src/)
 - Renamed clevelandwater to [cleveland-water](../cleveland-water/)
 - Renamed dlc to [duquense-light-company](../duquesne-light-company/)
