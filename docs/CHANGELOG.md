@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### Fixed
+- Restored previous static files to [github-pages](../github-pages/) to maintain static pages until containerized application is complete.
+
 ### Changed
+- Updated [deploy.yml](../.github/workflows/deploy.yml) to include new location for static github pages 
 - Updated [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) link to version 1.1.0 from 1.0.0
 
 ## [2.1.0-alpha] - 2024-08-28
