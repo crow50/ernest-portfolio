@@ -17,7 +17,7 @@ Last Modified:
     2024-08-28
 
 Version:
-    0.1.1
+    0.2.0
 
 License:
     GPL 3.0
@@ -67,6 +67,18 @@ def parse_arguments() -> argparse.Namespace:
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 def main() -> None:
     """
