@@ -37,6 +37,21 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__, static_folder='src/static', template_folder='src/templates')
 
+projects = [
+    {
+        "title": "Ernest Baker - Professional Resume",
+        "description": "This project encompasses my professional portfolio, resume and other experiences.",
+        "link": "https://github.com/crow50/ernest-portfolio",
+        "image": "images/Resized_American_Bulldog_Crow_Avatar.png"
+    },
+    {
+        "title": "LibraryAssembler",
+        "description": "Application dedicated to sorting, renaming and delivering your eBooks, Magazines, Comics and Audiobooks",
+        "link": "https://github.com/crow50/libraryassembler",
+        "image": "images/DALLE_LibraryAssembler.webp"
+    }
+]
+
 def setup_logging(level: int = logging.INFO) -> None:
     """Set up logging with a specified log level."""
     logging.basicConfig(level=level, format=LOG_FORMAT)
@@ -72,9 +87,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/projects')
-def projects():
-    return render_template('projects.html')
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html', projects=projects)
 
 @app.route('/contact')
 def contact():
