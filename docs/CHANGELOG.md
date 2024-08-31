@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 - Improved [css](../src/static/css/main.css) and included entries for project-items
-- Renamed projects.html to [portfolio.html](../src/templates/portfolio.html)
+- Renamed projects.html to [portfolio.html](../src/templates/portfolio.html) and added more projects
 
 ### Added
 - Generated [Library Assembler Image](../src/static/images/DALLE_LibraryAssembler.webp)
