@@ -6,16 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## Unreleased
 
-## [3.0.0-LTS]
+## [3.0.0]
 - Full deployement on AWS ECS
 - Modification of Github Actions to deploy to AWS
 
 ## [2.9.0]
-- Full containerization
+- Full transition of applicaiton to Docker container
 - Hosted on Github Container Registry
 
 ## [2.8.0]
-- Final Database integration for webpages
+- Final Database integration for webpages prior to Containerization
 - Logging and Arguements refined
 
 # Released
