@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### Changed
+- Improved [css](../src/static/css/main.css) and included entries for project-items
+- Renamed projects.html to [portfolio.html](../src/templates/portfolio.html)
+
+### Added
+- Generated [Library Assembler Image](../src/static/images/DALLE_LibraryAssembler.webp)
+- Created project data structure and looping function. Resolves #15
+
 ## [2.2.0-alpha] 2024-08-29
 
 ### Added

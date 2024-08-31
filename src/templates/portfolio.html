@@ -6,6 +6,15 @@
 
         <h2>Projects</h2>
 
+        {% for project in projects %}
+        <div class="project-item">
+            <h3>{{ project.title }}</h3>
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}">
+            <p>{{ project.description }}</p>
+            <a href="{{ project.link }}" target="_blank">View Project</a>
+        </div>
+        {% endfor %}
+
         <div class="project-item">
             <h3>Gatekeeper Project</h3>
             <p>Objective: Enhance CIP compliance and consolidate physical-entry requirements.</p>
@@ -16,6 +25,7 @@
                 <li>Conducted comprehensive training sessions and established governance structures</li>
 			</ul>
         </div>
+
     </section>
 {% endblock %}
 
