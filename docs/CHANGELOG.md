@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+## [3.0.0-LTS]
+- Full deployement on AWS ECS
+- Modification of Github Actions to deploy to AWS
+
+## [2.9.0]
+- Full containerization
+- Hosted on Github Container Registry
+
+## [2.8.0]
+- Final Database integration for webpages
+- Logging and Arguements refined
+
+# Released
+
 ### Changed
 - Improved [css](../src/static/css/main.css) and included entries for project-items
 - Renamed projects.html to [portfolio.html](../src/templates/portfolio.html) and added more projects
