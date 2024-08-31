@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Generated [Library Assembler Image](../src/static/images/DALLE_LibraryAssembler.webp)
 - Created project data structure and looping function. Resolves #15
 
+### Fixed
+- Validated and corrected links in navigation bar. Resolves #16
+
 ## [2.2.0-alpha] 2024-08-29
 
 ### Added
