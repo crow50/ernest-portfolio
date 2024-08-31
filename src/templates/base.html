@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Basic Meta Tags -->
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ernest Baker - Systems and Software Analyst with extensive experience in IT governance, infrastructure design, and systems integration.">
+    <meta name="keywords" content="Linux Administrator, Administrator, Systems Analyst, Software Analyst, Systems Engineer, IT governance, infrastructure design, systems integration, Ernest Baker, Python Developer">
+    <meta name="author" content="Ernest Baker">
+	
+	<!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Ernest Baker - Systems and Software Analyst Portfolio">
+    <meta property="og:description" content="Explore the portfolio of Ernest Baker, a Systems and Software Analyst with expertise in IT governance, automation, infrastructure design, and systems integration.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://crow50.github.io/ernest-portfolio/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/crow50/ernest-portfolio/main/src/static/images/Resized_American_Bulldog_Crow_Avatar.png">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ernest Baker - Systems and Software Analyst Portfolio">
+    <meta name="twitter:description" content="Explore the portfolio of Ernest Baker, a Systems and Software Analyst with expertise in IT governance, automation, infrastructure design, and systems integration.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/crow50/ernest-portfolio/main/src/static/images/Resized_American_Bulldog_Crow_Avatar.png">
+	
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://crow50.github.io/ernest-portfolio/">
+
+	<!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	
+	<!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <title>{% block title %}Ernest Baker - Professional Resume{% endblock %}</title>
+
+    
+</head>
+<body>
+    <header>
+        <h1>Ernest L. Baker</h1>
+        <p>Systems Engineer | ernestleroybaker@gmail.com | (719) 229-7102</p>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Summary</a></li>
+                <li><a href="{{ url_for('about') }}#skills">Skills</a></li>
+                <li><a href="{{ url_for('about') }}#experience">Experience</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Projects</a></li>
+                <li><a href="{{ url_for('about') }}#achievements">Achievements</a></li>
+                <li><a href="{{ url_for('about') }}#education">Education</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ernest Baker. All rights reserved.</p>
+        <ul>
+            <li><a href="https://github.com/crow50">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ernestlbaker/">LinkedIn</a></li>
+        </ul>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
