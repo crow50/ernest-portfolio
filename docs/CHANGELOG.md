@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Renamed projects.html to [portfolio.html](../src/templates/portfolio.html) and added more projects
 
 ### Added
+- Started [freecodecamp](../freecodecamp/) folder and first project [catphotoapp.html](../freecodecamp/catphotoapp.html) in the Responsive Web Design Certification
 - Generated [Library Assembler Image](../src/static/images/DALLE_LibraryAssembler.webp)
 - Created project data structure and looping function. Resolves #15
 
