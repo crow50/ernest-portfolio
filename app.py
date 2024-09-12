@@ -91,6 +91,10 @@ def about():
 def portfolio():
     return render_template('portfolio.html', projects=projects)
 
+@app.route('/military-service')
+def military_service():
+    return render_template('military_service.html')
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
