@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+## [3.0.0]
+- Full deployement on AWS ECS
+- Modification of Github Actions to deploy to AWS
+
+## [2.9.0]
+- Full transition of applicaiton to Docker container
+- Hosted on Github Container Registry
+
+## [2.8.0]
+- Final Database integration for webpages prior to Containerization
+- Logging and Arguements refined
+
+# Released
+
 ### Changed
 - Began working on [military_service.html](../src/templates/military_service.html), added references in base template nav bar and app.py
 - Corrected typo in [portfolio.html](../src/templates/portfolio.html)
