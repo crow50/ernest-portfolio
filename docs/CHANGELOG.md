@@ -21,12 +21,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 # Released
 
 ### Changed
+- Modified base.html for more customizable blocks on different webpages, included moving some existing blocks on current pages. All changes validated.
 - Began working on [military_service.html](../src/templates/military_service.html), added references in base template nav bar and app.py
 - Corrected typo in [portfolio.html](../src/templates/portfolio.html)
 - Improved [css](../src/static/css/main.css) and included entries for project-items
 - Renamed projects.html to [portfolio.html](../src/templates/portfolio.html) and added more projects
 
 ### Added
+- Created [military_service.css](../src/static/css/military_service.css) to create custom styles for page
 - Generated [Library Assembler Image](../src/static/images/DALLE_LibraryAssembler.webp)
 - Created project data structure and looping function. Resolves #15
 

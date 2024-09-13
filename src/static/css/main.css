@@ -44,33 +44,6 @@ section {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.skill {
-    margin-bottom: 15px;
-}
-
-.skill p {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-.skill-rating {
-    font-size: 1.2em;
-    color: #FFD700;
-}
-
-.skill-bar {
-    background-color: #ddd;
-    border-radius: 5px;
-    margin: 5px 0;
-}
-
-.skill-level {
-    background-color: #4CAF50;
-    height: 20px;
-    border-radius: 5px;
-}
-
 .certificate-img {
     max-width: 100%;
     height: auto;

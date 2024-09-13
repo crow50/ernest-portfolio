@@ -30,8 +30,8 @@
     <link rel="canonical" href="https://crow50.github.io/ernest-portfolio/">
 
 	<!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-	
+    {% block stylesheet %}<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">{% endblock %}
+
 	<!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
@@ -41,6 +41,7 @@
 </head>
 <body>
     <header>
+    {% block header %}
         <h1>Ernest L. Baker</h1>
         <p>Systems Engineer | ernestleroybaker@gmail.com | (719) 229-7102</p>
         <nav>
@@ -55,20 +56,25 @@
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
             </ul>
         </nav>
+    {% endblock %}
     </header>
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
 
     <footer>
+    {% block footer %}
         <p>&copy; 2024 Ernest Baker. All rights reserved.</p>
         <ul>
             <li><a href="https://github.com/crow50">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/ernestlbaker/">LinkedIn</a></li>
         </ul>
+    {% endblock %}
     </footer>
 
     <script src="../static/js/main.js"></script>
+    {% block script %}{% endblock %}
 </body>
 </html>
