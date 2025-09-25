@@ -1,0 +1,25 @@
+# Projects
+
+- project: "Secrets Scanning in Git Repositories"
+  role: "Developer"
+  duration: "Fall 2025"
+  url: "https://github.com/crow50/Gitleaks-Secret-Scanning"
+  description: "Implemented Gitleaks to detect and prevent secrets leakage in Git repositories. Added pre-commit hooks for local enforcement, integrated CI/CD scanning with GitHub Actions, and showcased GitHub Advanced Security push protection. Demo includes fake secrets, failing pipeline, remediation, and history cleanup workflow."
+
+- project: "Portfolio CI/CD Pipeline"
+  role: "Developer"
+  duration: "January 2024 - Present"
+  url: "https://github.com/crow50/ernest-portfolio"
+  description: "To build a personal portfolio site with automated deployments using GitHub Actions + Cloudflare demonstrating GitOps workflow basics, static site hosting, version control, and deployment automation."
+
+- project: "DOE Grant Data Extraction Script"
+  role: "Developer"
+  duration: "March 2023 - December 2023"
+  url: "https://github.com/crow50/ernest-portfolio/blob/main/previous-experience/duquesne-light-company/odms_data_extraction.py"
+  description: "Executed and maintained Python scripts to generate datasets for DOE Grid Modernization grant reporting using scripting fundamentals, data extraction, and operational support for compliance workflows."
+
+- project: "Open Sauced Guestbook"
+  role: "Contributor"
+  duration: "February 2025"
+  url: "https://github.com/open-sauced/guestbook/commit/21279d4b18ba27f653369fabf0befdd54195c6f8"
+  description: "Open-source collaboration learning GitHub forking, branching, and PR submission workflow for basic open-source contribution practices, collaborative version control skills."
