@@ -1,18 +1,22 @@
 # Skills
+
 - skill: Systems Engineering
   description: IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT
 
-- skill: Programming Languages
-  description: Python, SQL, BASH, YAML, Markdown, HTML
+- skill: Automation & Programming
+  description: Python, Bash, Java, SQL, YAML, Markdown
+
+- skill: CI/CD & DevSecOps
+  description: Git, GitHub Actions, Gitleaks, Pre-Commit
 
 - skill: Database Management
   description: SQL Server, Oracle, MySQL, PostgreSQL
 
 - skill: Platforms & Virtualization
-  description: Windows Server, Linux, VMware, Proxmox, Docker
+  description: Linux, Windows Server, VMware, Proxmox, Docker
 
 - skill: Networking
   description: VLANs, Subnetting, VPNs, Load Balancing, 10GBit Networking, iSCSI, Ethernet, Cellular, TCP/IP
 
 - skill: Tools & Applications
-  description: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, GitLab, Git, Github Actions, Ansible
+  description: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell
