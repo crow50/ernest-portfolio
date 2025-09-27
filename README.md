@@ -1,14 +1,16 @@
 # Ernest Baker – DevSecOps Engineer
 
-## 👋 Welcome to my [Portfolio](https://ernestbaker.me)
-
-I’m Ernest, a **Senior Systems Analyst** transitioning to **DevSecOps Engineer** with 10+ years in systems analysis, administration, and automation. My work spans **Python scripting, infrastructure management, and process automation** for utilities and public-sector organizations. This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
-
 ---
 
 [![Gitleaks Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml)
 
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
+
+---
+
+## 👋 Welcome to my [Portfolio](https://ernestbaker.me)
+
+I’m Ernest, a **Senior Systems Analyst** transitioning to **DevSecOps Engineer** with 10+ years in systems analysis, administration, and automation. My work spans **Python scripting, infrastructure management, and process automation** for utilities and public-sector organizations. This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
 
 ---
 
