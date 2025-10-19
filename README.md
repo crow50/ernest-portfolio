@@ -4,6 +4,9 @@
 
 [![Gitleaks Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml)
 
+
+[![Bundle Audit](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml)
+
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
 ---
@@ -16,11 +19,13 @@ I’m Ernest, a **Senior Systems Analyst** transitioning to **DevSecOps Engineer
 
 ## 🛠️ Skills & Tools
 
-* **Automation & Programming:** Python, Bash, Java, SQL
-* **Infrastructure & Virtualization:** Linux, Windows Server, VMware, Proxmox, Docker
-* **Networking:** VLANs, VPNs, 10GbE, TCP/IP, Load Balancing
-* **CI/CD & DevSecOps:** Git, GitHub Actions, Giltleaks, Pre-commit
-* **Databases:** PostgreSQL, MySQL, SQL Server, Oracle
+* **Systems Engineering & Governance:** IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT, Digital Transformation
+* **Automation & Programming:** Python, Java, SQL, YAML, markdown, HTML, Automation Scripting
+* **DevSecOps & CI/CD:** Git, GitHub, GitHub Actions, Gitleaks, Pre-commit, Infrastructure as Code (IaC), Secrets Scanning
+* **Database Management:** SQL Server, Oracle, MySQL, PostgreSQL
+* **Platforms & Virtualization:** Windows Server, Linux, VMware, Proxmox, Docker, Kubernetes (k3s)
+* **Networking:** VLANs, Subnetting, VPNs, Load Balancing, Multi-Gigabit Networking, iSCSI, Ethernet, Cellular, TCP/IP
+* **Tools & Applications:** Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, Traefik, n8n, Pi-hole, nmap, Wireshark
 
 ---
 
