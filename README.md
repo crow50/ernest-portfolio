@@ -21,12 +21,11 @@ I’m Ernest, a **Senior Systems Analyst** transitioning to **DevSecOps Engineer
 
 * **Systems Engineering & Governance:** IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT, Digital Transformation
 * **Automation & Programming:** Python, Java, SQL, YAML, markdown, HTML, Automation Scripting
-* **DevSecOps & CI/CD:** GIT, GitHub, GitHub Actions, Gitleaks, Pre-commit, Infrastructure as Code (IaC), Secrets Scanning
+* **DevSecOps & CI/CD:** Git, GitHub, GitHub Actions, Gitleaks, Pre-commit, Infrastructure as Code (IaC), Secrets Scanning
 * **Database Management:** SQL Server, Oracle, MySQL, PostgreSQL
 * **Platforms & Virtualization:** Windows Server, Linux, VMware, Proxmox, Docker, Kubernetes (k3s)
 * **Networking:** VLANs, Subnetting, VPNs, Load Balancing, Multi-Gigabit Networking, iSCSI, Ethernet, Cellular, TCP/IP
-* **Tools & Applications:** Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, Traefik, n8n,
-Pi-hole, nmap, Wireshark
+* **Tools & Applications:** Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, Traefik, n8n, Pi-hole, nmap, Wireshark
 
 ---
 
