@@ -7,25 +7,3 @@ updates:
       interval: "weekly"
       day: "monday"
       time: "06:00"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "crow50"
-    labels:
-      - "dependabot"
-      - "dependencies"
-      - "security"
-    # Auto-merge patch updates
-    allow:
-      - dependency-type: "all"
-    # Group non-security updates
-    groups:
-      development-dependencies:
-        dependency-type: "development"
-        update-types:
-          - "minor"
-          - "patch"
-    # Security updates get individual PRs
-    commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
-      include: "scope"
