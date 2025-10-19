@@ -10,11 +10,18 @@ on:
     - cron: '0 9 * * 5'
   workflow_dispatch:
 
+
+
 jobs:
-  security-audit:
+  bundle-audit:
     name: Bundle Audit Check
     runs-on: ubuntu-latest
-    
+
+    # Set default working directory
+    defaults:
+      run:
+          working-directory: ./portfolio-site
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
