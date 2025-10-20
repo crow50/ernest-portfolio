@@ -4,8 +4,9 @@
 
 [![Gitleaks Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml)
 
-
 [![Bundle Audit](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml)
+
+[![Dependabot Updates](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates)
 
 <img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
 
