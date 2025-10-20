@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 # Minimal Jekyll install
 gem "jekyll", "~> 4.4"
+gem 'logger'
+gem 'bigdecimal'
 
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
