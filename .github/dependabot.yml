@@ -26,6 +26,6 @@ updates:
           - "patch"
     # Security updates get individual PRs
     commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
+      prefix: "bundle-update"
+      prefix-development: "bundle-update"
       include: "scope"
