@@ -52,6 +52,13 @@ I’m Ernest, a **Senior Systems Analyst** transitioning into **Cybersecurity an
 * **What:** Basic open-source contribution practices, collaborative version control skills.
 * **PR:** [Guestbook PR](https://github.com/OpenSource-Communities/guestbook/pull/705)
 
+### **CloudRF API Clients - Python 3 Migration**
+
+* **Objective:** Add compatibility for Cloud RF API clients using Python 3 while preserving Python 2 usage.
+* **What:** Refactored syntax/imports, split 2.x/3.x paths for compatibility; PR merged upstream (4 commits affecting ~20 files).
+* **PR:** [CloudRF #2 – Python changes](https://github.com/Cloud-RF/CloudRF-API-clients/pull/2)
+
+
 ---
 
 ## 🌟 Professional Background

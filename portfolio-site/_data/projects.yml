@@ -23,3 +23,9 @@
   duration: "February 2025"
   url: "https://github.com/open-sauced/guestbook/commit/21279d4b18ba27f653369fabf0befdd54195c6f8"
   description: "Open-source collaboration learning GitHub forking, branching, and PR submission workflow for basic open-source contribution practices, collaborative version control skills."
+
+- project: "CloudRF API Clients - Python 3 Migration"
+  role: "Contributor"
+  duration: "Dec 2018 - Feb 2019"
+  url: "https://github.com/Cloud-RF/CloudRF-API-clients/pull/2"
+  description: "Upgraded Python client code for CloudRF API: refactored for Python 3 compatibility and organized Python 2/3 variants; 4 commits merged across ~20 files (+345/−43)."
