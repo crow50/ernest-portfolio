@@ -28,4 +28,4 @@
   role: "Contributor"
   duration: "December 2018 - February 2019"
   url: "https://github.com/Cloud-RF/CloudRF-API-clients/pull/2"
-  description: "Upgraded Python client code for CloudRF API: refactored for Python 3 compatibility and organized Python 2/3 variants; 4 commits merged across ~20 files (+345/−43)."
+  description: "Upgraded Python client code for CloudRF API: refactored for Python 3 compatibility and organized Python 2/3 variants."

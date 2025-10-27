@@ -1,4 +1,4 @@
-# Ernest Baker – Cybersecurity & DevSecOps Engineer
+# Ernest Baker - Cybersecurity & DevSecOps Engineer
 
 ---
 
@@ -30,8 +30,8 @@ I’m Ernest, a **Senior Systems Analyst** transitioning into **Cybersecurity an
 
 ### **Secrets Scanning in Git Repositories**
 
-* **Objective:** Demonstrate detection and prevention of secrets leakage using local and CI/CD tools.  
-* **What:** Integrated Gitleaks into GitHub Actions to scan commits and PRs, added pre-commit hooks for local protection, and showcased GitHub Advanced Security push protection. Demo includes fake secrets, pipeline failure, remediation, and history cleanup with git-filter-repo.  
+* **Objective:** Demonstrate detection and prevention of secrets leakage using local and CI/CD tools.
+* **What:** Integrated Gitleaks into GitHub Actions to scan commits and PRs, added pre-commit hooks for local protection, and showcased GitHub Advanced Security push protection. Demo includes fake secrets, pipeline failure, remediation, and history cleanup with git-filter-repo.
 * **Repo:** [Gitleaks Secret Scanning](https://github.com/crow50/Gitleaks-Secret-Scanning)
 
 ### **Portfolio CI/CD Pipeline**
@@ -56,24 +56,23 @@ I’m Ernest, a **Senior Systems Analyst** transitioning into **Cybersecurity an
 
 * **Objective:** Add compatibility for Cloud RF API clients using Python 3 while preserving Python 2 usage.
 * **What:** Refactored syntax/imports, split 2.x/3.x paths for compatibility; PR merged upstream (4 commits affecting ~20 files).
-* **PR:** [CloudRF #2 – Python changes](https://github.com/Cloud-RF/CloudRF-API-clients/pull/2)
-
+* **PR:** [CloudRF #2 - Python changes](https://github.com/Cloud-RF/CloudRF-API-clients/pull/2)
 
 ---
 
 ## 🌟 Professional Background
 
-* **Duquesne Light Company – Software & Systems Analyst III**
+* **Duquesne Light Company - Software & Systems Analyst III**
 
   * Maintained Python scripts delivering DOE reporting datasets for \$19.7M grant compliance.
   * Converted legacy manual processes to Python-based workflows, reducing recurring work hours.
 
-* **City of Cleveland – Systems Analyst**
+* **City of Cleveland - Systems Analyst**
 
   * Automated manual workflows saving 5+ hours per week in operational tasks.
   * Supported network infrastructure for Automated Meter Reading systems, maintaining 98% uptime.
 
-* **Itron – Field Engineer & QA**
+* **Itron - Field Engineer & QA**
 
   * Performed field testing and QA for utility data collection systems.
   * Ensured operational reliability for deployed hardware/software systems.
