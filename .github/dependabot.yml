@@ -1,8 +1,8 @@
 version: 2
 updates:
-  # Monitor Bundler dependencies
-  - package-ecosystem: "bundler"
-    directory: "/portfolio-site"
+  # Monitor GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
     schedule:
       interval: "weekly"
       day: "monday"
@@ -19,6 +19,34 @@ updates:
       - dependency-type: "all"
     # Group non-security updates
     groups:
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    # Security updates get individual PRs
+    commit-message:
+      prefix: "gha-update"
+      include: "scope"
+
+  # Monitor Bundler dependencies
+  - package-ecosystem: "bundler"
+    directory: "/portfolio-site"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "crow50"
+    labels:
+      - "dependabot"
+      - "dependencies"
+      - "ruby"
+    # Auto-merge patch updates
+    allow:
+      - dependency-type: "all"
+    # Group non-security updates
+    groups:
       development-dependencies:
         dependency-type: "development"
         update-types:
@@ -28,4 +56,32 @@ updates:
     commit-message:
       prefix: "bundle-update"
       prefix-development: "bundle-update"
+      include: "scope"
+
+  # Monitor Docker dependencies
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "crow50"
+    labels:
+      - "dependabot"
+      - "dependencies"
+      - "docker"
+    # Auto-merge patch updates
+    allow:
+      - dependency-type: "all"
+    # Group non-security updates
+    groups:
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    # Security updates get individual PRs
+    commit-message:
+      prefix: "docker-update"
       include: "scope"
