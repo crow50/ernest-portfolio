@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
 # Minimal Jekyll install
-gem "jekyll", "~> 4.4"
-gem 'logger'
-gem 'bigdecimal'
+gem 'jekyll'
 
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-seo-tag'
-  gem 'jekyll-sass-converter', '~> 3.1'
 end

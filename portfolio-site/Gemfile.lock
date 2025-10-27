@@ -51,6 +51,33 @@ GEM
     google-protobuf (4.33.0-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
+    google-protobuf (4.33.0)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-x86-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-x86-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.0-x86_64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     http_parser.rb (0.8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
@@ -75,6 +102,8 @@ GEM
       webrick (~> 1.7)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
+    jekyll-sass-converter (3.1.0)
+      sass-embedded (~> 1.75)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
@@ -90,7 +119,6 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.7.0)
     mercenary (0.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -105,9 +133,13 @@ GEM
     sass-embedded (1.93.2)
       google-protobuf (~> 4.31)
       rake (>= 13)
+    sass-embedded (1.93.2-aarch64-linux-android)
+      google-protobuf (~> 4.31)
     sass-embedded (1.93.2-aarch64-linux-gnu)
       google-protobuf (~> 4.31)
     sass-embedded (1.93.2-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.93.2-arm-linux-androideabi)
       google-protobuf (~> 4.31)
     sass-embedded (1.93.2-arm-linux-gnueabihf)
       google-protobuf (~> 4.31)
@@ -115,7 +147,15 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.93.2-arm64-darwin)
       google-protobuf (~> 4.31)
+    sass-embedded (1.93.2-riscv64-linux-android)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.93.2-riscv64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.93.2-riscv64-linux-musl)
+      google-protobuf (~> 4.31)
     sass-embedded (1.93.2-x86_64-darwin)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.93.2-x86_64-linux-android)
       google-protobuf (~> 4.31)
     sass-embedded (1.93.2-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
@@ -127,25 +167,30 @@ GEM
     webrick (1.9.1)
 
 PLATFORMS
+  aarch64-linux-android
   aarch64-linux-gnu
   aarch64-linux-musl
+  arm-linux-androideabi
   arm-linux-gnu
+  arm-linux-gnueabihf
   arm-linux-musl
+  arm-linux-musleabihf
   arm64-darwin
+  riscv64-linux-android
+  riscv64-linux-gnu
+  riscv64-linux-musl
   ruby
   x86-linux-gnu
   x86-linux-musl
   x86_64-darwin
+  x86_64-linux-android
   x86_64-linux-gnu
   x86_64-linux-musl
 
 DEPENDENCIES
-  bigdecimal
-  jekyll (~> 4.4)
-  jekyll-sass-converter (~> 3.1)
+  jekyll
   jekyll-seo-tag
   jekyll-sitemap
-  logger
 
 BUNDLED WITH
    2.7.2
