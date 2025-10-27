@@ -1,0 +1,11 @@
+.github/
+.gitignore
+.dockerignore
+.pre-commit-config.yaml
+portfolio-site/_site/
+portfolio-site/.jekyll-cache/
+portfolio-site/.sass-cache/
+previous-experience/
+Dockerfile
+README.md
+LICENSE
