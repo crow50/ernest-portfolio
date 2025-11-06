@@ -12,7 +12,7 @@ updates:
       - "crow50"
     labels:
       - "dependabot"
-      - "dependencies"
+      - "github-actions"
       - "security"
     # Auto-merge patch updates
     allow:
