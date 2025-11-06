@@ -2,15 +2,20 @@ name: Bundle Audit
 
 on:
   push:
+    branches-ignore:
+      - 'dependabot/**'
+    paths:
+      - '**/Gemfile'
+      - '**/Gemfile.lock'
   pull_request:
     branches:
-        - main
+      - main
+    paths:
+      - '**/Gemfile'
+      - '**/Gemfile.lock'
   schedule:
     # Run weekly on Fridays at 9 AM UTC
     - cron: '0 9 * * 5'
-  workflow_dispatch:
-
-
 
 jobs:
   bundle-audit:
