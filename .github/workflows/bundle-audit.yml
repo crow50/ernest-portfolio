@@ -17,6 +17,10 @@ on:
     # Run weekly on Fridays at 9 AM UTC
     - cron: '0 9 * * 5'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bundle-audit:
     name: Bundle Audit Check
