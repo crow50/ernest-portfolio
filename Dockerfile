@@ -2,9 +2,8 @@ FROM ruby:3.3-slim
 
 WORKDIR /app
 
-COPY /portfolio-site /app
 
-RUN apt update && \
+RUN apt-get update && \
     apt install -y --no-install-recommends build-essential && \
     rm -rf /var/lib/apt/lists/*
 

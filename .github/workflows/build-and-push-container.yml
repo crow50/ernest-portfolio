@@ -5,7 +5,7 @@ on:
     paths:
       - '**/Dockerfile'
       - '**/.dockerignore'
-      - '/portfolio-site/**'
+      - 'portfolio-site/**'
     branches:
       - main
 

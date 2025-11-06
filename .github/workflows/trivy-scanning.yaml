@@ -5,12 +5,12 @@ on:
     paths:
       - '**/Dockerfile'
       - '**/.dockerignore'
-      - '/portfolio-site/**'
+      - 'portfolio-site/**'
   pull_request:
     paths:
       - '**/Dockerfile'
       - '**/.dockerignore'
-      - '/portfolio-site/**'
+      - 'portfolio-site/**'
     branches:
       - main
 
@@ -55,7 +55,7 @@ jobs:
           format: 'sarif'
           output: 'trivy-container-results.sarif'
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-          skip-setup-trivy: 'true' # Skip setup since Trivy is already installed in previous step
+          skip-setup-trivy: 'true' # Reuse Trivy binary from the action's cache to speed up setup
 
         # Uploading SARIF report to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab
