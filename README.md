@@ -1,6 +1,12 @@
 # Ernest Baker<br>Cybersecurity & DevSecOps Engineer | U.S. Army Veteran
 
+<div align="center">
+
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ernest%20Baker-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ernest-baker/)
+[![GitHub followers](https://img.shields.io/github/followers/crow50?label=Follow%20Me%20on%20GitHub&style=social)](https://github.com/crow50)
+
+</div>
 
 ---
 
@@ -9,7 +15,7 @@
 | DevSecOps | Automation | CI/CD |
 |:-----------:|:------------:|:-------:|
 | [![Gitleaks Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml) | [![Dependabot Updates](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates) | [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://ernestbaker.me) |
-| [![Trivy Container Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml) | [![Bundle Audit](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml) | [![Docker Build](https://github.com/crow50/ernest-portfolio/actions/workflows/docker-build.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/docker-build.yml) |
+| [![Trivy Container Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml) | [![Bundle Audit](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml) | [![Docker Build](https://img.shields.io/github/actions/workflow/status/crow50/ernest-portfolio/build-and-push-container.yml?label=Docker%20Build&logo=docker)](https://github.com/crow50/ernest-portfolio/actions/workflows/build-and-push-container.yml) |
 
 </div>
 
