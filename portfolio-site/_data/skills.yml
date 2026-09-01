@@ -1,22 +1,25 @@
 # Skills
 
-- skill: Systems Engineering
-  description: IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT
+- skill: DevSecOps & CI/CD
+  description: Git, GitHub Actions, GitHub Advanced Security, Gitleaks, Trivy, Syft, Grype, Pre-Commit Hooks, SBOM Generation, CVE/CVSS Vulnerability Analysis, Applied ML for Security Scoring
+
+- skill: Systems Engineering & Governance
+  description: IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT, Digital Transformation
 
 - skill: Automation & Programming
-  description: Python, Bash, Java, SQL, YAML, Markdown
+  description: Python, Bash, C++, Java, SQL, YAML, Markdown
 
-- skill: CI/CD & DevSecOps
-  description: Git, GitHub Actions, Gitleaks, Pre-Commit
+- skill: Platforms, Virtualization & Cloud
+  description: Linux, Windows Server, VMware, Proxmox, Docker, Kubernetes (k3s), Digital Ocean, nginx, vsftpd
+
+- skill: Networking & Security Tools
+  description: nmap, Wireshark, VLANs, Subnetting, VPNs, Load Balancing, Hardware MFA (YubiKey), TCP/IP
+
+- skill: Infrastructure Automation
+  description: Traefik, n8n, Pi-hole, Homelab Design & Deployment
 
 - skill: Database Management
   description: SQL Server, Oracle, MySQL, PostgreSQL
-
-- skill: Platforms & Virtualization
-  description: Linux, Windows Server, VMware, Proxmox, Docker
-
-- skill: Networking
-  description: VLANs, Subnetting, VPNs, Load Balancing, 10GBit Networking, iSCSI, Ethernet, Cellular, TCP/IP
 
 - skill: Tools & Applications
   description: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell
