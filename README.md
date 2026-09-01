@@ -1,4 +1,4 @@
-# Ernest Baker<br>Cybersecurity & DevSecOps Engineer | U.S. Army Veteran
+# Ernest Baker<br>DevSecOps Engineer | U.S. Army Veteran
 
 <div align="center">
 
@@ -23,28 +23,52 @@
 
 ## 👋 [Welcome to my Portfolio](https://ernestbaker.me)
 
-I’m Ernest, a **Senior Systems Analyst** transitioning into **Cybersecurity and DevSecOps Engineering** with 10+ years in systems analysis, administration, and automation. My work spans **Python scripting, infrastructure management, and process automation** for utilities and public-sector organizations. This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
+I'm Ernest, a **Senior Systems Analyst** transitioning into **DevSecOps Engineering** with 10+ years in systems analysis, administration, and automation. I build automated infrastructure and CI/CD pipelines with security built in from the start: secrets scanning, container hardening, and software supply-chain analysis. This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
 
 ---
 
 ## 🛠️ Skills & Tools
 
+* **DevSecOps & CI/CD:** Git, GitHub, GitHub Actions, GitHub Advanced Security, Gitleaks, Trivy, Syft, Grype, Pre-commit, SBOM Generation, CVE/CVSS Vulnerability Analysis, Applied ML for Security Scoring
 * **Systems Engineering & Governance:** IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT, Digital Transformation
-* **Automation & Programming:** Python, Java, SQL, YAML, markdown, HTML, Automation Scripting
-* **DevSecOps & CI/CD:** Git, GitHub, GitHub Actions, Gitleaks, Pre-commit, Infrastructure as Code (IaC), Secrets Scanning
+* **Automation & Programming:** Python, Bash, C++, Java, SQL, YAML, Markdown, HTML
+* **Platforms, Virtualization & Cloud:** Windows Server, Linux, VMware, Proxmox, Docker, Kubernetes (k3s), Digital Ocean, nginx, vsftpd
+* **Networking & Security Tools:** VLANs, Subnetting, VPNs, Load Balancing, Multi-Gigabit Networking, iSCSI, Ethernet, Cellular, TCP/IP, nmap, Wireshark, Hardware MFA (YubiKey)
+* **Infrastructure Automation:** Traefik, n8n, Pi-hole
 * **Database Management:** SQL Server, Oracle, MySQL, PostgreSQL
-* **Platforms & Virtualization:** Windows Server, Linux, VMware, Proxmox, Docker, Kubernetes (k3s)
-* **Networking:** VLANs, Subnetting, VPNs, Load Balancing, Multi-Gigabit Networking, iSCSI, Ethernet, Cellular, TCP/IP
-* **Tools & Applications:** Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell, Traefik, n8n, Pi-hole, nmap, Wireshark
+* **Tools & Applications:** Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell
 
 ---
 
 ## 🏗️ Projects
 
+### **Container Vulnerability Scanning with Trivy**
+
+* **Objective:** Scan container images for OS package, dependency, and secrets vulnerabilities.
+* **What:** Used Trivy to scan a container image and automated the scan in a GitHub Actions pipeline, documenting the full workflow from a vulnerable base image through scan results and remediation.
+* **Repo:** [trivy-container-security](https://github.com/crow50/trivy-container-security)
+
+### **Supply Chain Security with SBOM**
+
+* **Objective:** Demonstrate end-to-end software supply-chain vulnerability management.
+* **What:** Generated an SBOM with Syft, scanned it with Grype, triaged 47 initial findings down to the one with an available fix, remediated it, and rebuilt/rescanned to confirm.
+* **Repo:** [supply-chain-security-with-sbom](https://github.com/crow50/supply-chain-security-with-sbom)
+
+### **Predicting CVSS Vulnerability Severity with Machine Learning**
+
+* **Objective:** Predict CVSS base severity from attack characteristics and real-world exploit signals, for a Big Data Mining and Analytics course.
+* **What:** Trained a Random Forest Regression model on ~156,000 NVD vulnerability records (CVE, CISA KEV, EPSS data). Achieved an R² of 0.986, identified integrity impact and network attack vectors as the strongest predictors, and caught/corrected a data-leakage bug in an earlier iteration.
+* **Course:** Big Data Mining and Analytics (CINF 401/8756), Stetson University
+
+### **Capture-the-Flag Infrastructure Setup (NJ3CT)**
+
+* **Objective:** Build and harden infrastructure for a team CTF exercise.
+* **What:** Provisioned a DigitalOcean VM, hardened SSH, stood up nginx and vsftpd, and built deliberately vulnerable services (anonymous FTP, path-traversal targets) for teammates to practice enumeration and exploitation against.
+
 ### **Secrets Scanning in Git Repositories**
 
 * **Objective:** Demonstrate detection and prevention of secrets leakage using local and CI/CD tools.
-* **What:** Integrated Gitleaks into GitHub Actions to scan commits and PRs, added pre-commit hooks for local protection, and showcased GitHub Advanced Security push protection. Demo includes fake secrets, pipeline failure, remediation, and history cleanup with git-filter-repo.
+* **What:** Integrated Gitleaks into GitHub Actions to scan commits and PRs, added pre-commit hooks for local protection, and showcased GitHub Advanced Security push protection. Originated as an in-class CI/CD security demo for Introduction to Cybersecurity. Demo includes fake secrets, pipeline failure, remediation, and history cleanup with git-filter-repo.
 * **Repo:** [Gitleaks Secret Scanning](https://github.com/crow50/Gitleaks-Secret-Scanning)
 
 ### **Portfolio CI/CD Pipeline**
@@ -95,6 +119,7 @@ I’m Ernest, a **Senior Systems Analyst** transitioning into **Cybersecurity an
 ## 🎓 Education & Training
 
 * **Stetson University:** B.S. Cybersecurity (in progress)
+* **Relevant Coursework:** Applied Cryptography, Big Data Mining & Analytics, Introduction to Cybersecurity
 * **Certifications & Courses:** Service Planning & Architecture, Project Risk Management, Python Programming
 
 ---
