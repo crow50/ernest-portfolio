@@ -1,10 +1,32 @@
 # Projects
 
+- project: "Container Vulnerability Scanning with Trivy"
+  role: "Developer"
+  duration: "Fall 2025"
+  url: "https://github.com/crow50/trivy-container-security"
+  description: "Used Trivy to scan container images for OS package and dependency vulnerabilities, secrets, and misconfigurations. Built a GitHub Actions pipeline to automate image scanning on every build, and documented the full workflow from a vulnerable base image through scan results and remediation."
+
+- project: "Supply Chain Security with SBOM"
+  role: "Developer"
+  duration: "Fall 2025"
+  url: "https://github.com/crow50/supply-chain-security-with-sbom"
+  description: "Generated a Software Bill of Materials (SBOM) with Syft for a containerized application and scanned it for known vulnerabilities using Grype. Triaged 47 initial findings down to the one vulnerability with an available fix, remediated the vulnerable dependency, and rebuilt and rescanned to confirm the fix in CI."
+
+- project: "Predicting CVSS Vulnerability Severity with Machine Learning"
+  role: "Developer"
+  duration: "Fall 2025"
+  description: "Trained a Random Forest Regression model on ~156,000 NVD vulnerability records (CVE, CISA KEV, and EPSS data) to predict CVSS base severity from underlying attack characteristics (vector, complexity, privileges required, user interaction, scope, CIA impact) plus real-world exploit signals. Achieved an R\u00b2 of 0.986 on held-out data, with integrity impact and network-based attack vectors as the strongest predictors. Caught and corrected an early data-leakage bug that had inflated an earlier version's accuracy to an unrealistic 99.99%."
+
+- project: "Capture-the-Flag Infrastructure Setup (NJ3CT)"
+  role: "Systems Administrator"
+  duration: "Fall 2025"
+  description: "Provisioned and configured a DigitalOcean VM for a team capture-the-flag exercise. Hardened SSH (disabled root login, created scoped user accounts), stood up nginx and vsftpd, and built deliberately vulnerable services - anonymous FTP access and path-traversal target directories - to give teammates a live environment for enumeration and exploitation practice."
+
 - project: "Secrets Scanning in Git Repositories"
   role: "Developer"
   duration: "Fall 2025"
   url: "https://github.com/crow50/Gitleaks-Secret-Scanning"
-  description: "Implemented Gitleaks to detect and prevent secrets leakage in Git repositories. Added pre-commit hooks for local enforcement, integrated CI/CD scanning with GitHub Actions, and showcased GitHub Advanced Security push protection. Demo includes fake secrets, failing pipeline, remediation, and history cleanup workflow."
+  description: "Implemented Gitleaks to detect and prevent secrets leakage in Git repositories. Added pre-commit hooks for local enforcement, integrated CI/CD scanning with GitHub Actions, and showcased GitHub Advanced Security push protection. Originated as an in-class CI/CD security demo for Introduction to Cybersecurity. Demo includes fake secrets, failing pipeline, remediation, and history cleanup workflow."
 
 - project: "Portfolio CI/CD Pipeline"
   role: "Developer"
