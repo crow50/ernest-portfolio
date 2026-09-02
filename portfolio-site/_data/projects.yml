@@ -15,7 +15,7 @@
 - project: "Predicting CVSS Vulnerability Severity with Machine Learning"
   role: "Developer"
   duration: "Fall 2025"
-  description: "Trained a Random Forest Regression model on ~156,000 NVD vulnerability records (CVE, CISA KEV, and EPSS data) to predict CVSS base severity from underlying attack characteristics (vector, complexity, privileges required, user interaction, scope, CIA impact) plus real-world exploit signals. Achieved an R\u00b2 of 0.986 on held-out data, with integrity impact and network-based attack vectors as the strongest predictors. Caught and corrected an early data-leakage bug that had inflated an earlier version's accuracy to an unrealistic 99.99%."
+  description: "Trained a Random Forest Regression model on ~156,000 NVD vulnerability records (CVE, CISA KEV, and EPSS data) to predict CVSS base severity from underlying attack characteristics (vector, complexity, privileges required, user interaction, scope, CIA impact) plus real-world exploit signals. Achieved an R² of 0.986 on held-out data, with integrity impact and network-based attack vectors as the strongest predictors. Caught and corrected an early data-leakage bug that had inflated an earlier version's accuracy to an unrealistic 99.99%."
 
 - project: "Capture-the-Flag Infrastructure Setup (NJ3CT)"
   role: "Systems Administrator"
