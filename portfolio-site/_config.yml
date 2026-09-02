@@ -1,5 +1,5 @@
 # Site settings
-title: "Ernest Baker | Cybersecurity & DevSecOps Engineer"
+title: "Ernest Baker | DevSecOps Engineer"
 description: "A vain attempt to document my professional life"
 
 # Build settings
@@ -17,7 +17,7 @@ resume_avatar_photo: "https://avatars.githubusercontent.com/u/15437063?v=4" # "a
 
 # Set the resume name and title
 resume_name:                    "Ernest L. Baker"
-resume_title:                   "Cybersecurity & DevSecOps Engineer"
+resume_title:                   "DevSecOps Engineer"
 
 # used for the contact button in _layouts/resume.html
 resume_contact_email:           "ernestleroybaker@gmail.com"
@@ -30,7 +30,7 @@ resume_header_contact_info:     "{{ site.resume_contact_email }} | {{ site.resum
 display_header_contact_info:    "false"
 
 
-resume_header_intro: "<p>I'm a Senior Systems Analyst transitioning into Cybersecurity or DevSecOps Engineer role with my background in systems engineering, automation, and infrastructure design. My work has helped organizations save time, reduce costs, and strengthen security. With military experience, IT expertise, and a passion for building resilient systems, I bring a disciplined and innovative approach to solving complex infrastructure and security challenges.</p>"
+resume_header_intro: "<p>I'm a Senior Systems Analyst transitioning into DevSecOps Engineering, with 10+ years in systems analysis, network administration, and process automation. I build automated infrastructure and CI/CD pipelines with security built in from the start: secrets scanning, container hardening, and software supply-chain analysis. Army veteran with a disciplined, mission-focused approach to solving infrastructure and security challenges.</p>"
 
 # use "yes" to display the email contact button,
 # "no" to display an "I'm not looking for work" message,
