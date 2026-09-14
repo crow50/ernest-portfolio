@@ -1,0 +1,35 @@
+---
+import { site } from '../data/site';
+const { email, location } = site.contact;
+const { github, linkedin } = site.social;
+---
+
+{/*
+  Print-only contact block. The old site printed with NO contact details at all.
+
+  The phone number is deliberately NOT here. CSS-based print-only styling
+  (`hidden print:block`) still puts the text in the HTML source, where any
+  scraper reading raw HTML finds it -- which is the exposure we were removing.
+  The number is injected from the print stylesheet instead, via the
+  .print-phone::after rule in src/styles/global.css. See the note there.
+*/}
+<div class="hidden print:block text-center text-[10pt] mt-1 text-[--color-ink]">
+  <span>{email}</span>
+  <span aria-hidden="true"> · </span>
+  <span class="print-phone"></span>
+  <span aria-hidden="true"> · </span>
+  <span>{location}</span>
+  <span aria-hidden="true"> · </span>
+  <span>ernestbaker.me</span>
+</div>
+
+{/*
+  Social URLs, spelled out. The old print stylesheet had a "Social Links"
+  section that was the ONLY contact channel surviving a print; dropping it
+  while adding the block above would have traded one regression for another.
+*/}
+<div class="hidden print:block text-center text-[9pt] mt-0.5 text-[--color-ink-muted]">
+  <span>{github.replace('https://', '')}</span>
+  <span aria-hidden="true"> · </span>
+  <span>{linkedin.replace('https://www.', '')}</span>
+</div>

@@ -1,0 +1,154 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: var(--font-lora), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-open-sans), system-ui, -apple-system, sans-serif;
+
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #565656;
+  --color-paper: #ffffff;
+  --color-rule: #d4d4d4;
+  --color-accent: #1f4e79;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  /* Dark palette. Contrast targets: body text >= 7:1, muted >= 4.5:1 on the
+     dark ground -- the old theme's #999-on-white footer failed AA at 2.85:1. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-ink: #e8e6e3;
+      --color-ink-muted: #a8a49f;
+      --color-paper: #16181c;
+      --color-rule: #343841;
+      --color-accent: #7fb3e8;
+    }
+  }
+
+  body {
+    font-family: var(--font-serif);
+    line-height: 1.6;
+  }
+
+  /* Visible keyboard focus. The old theme had none. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   PRINT
+   This is a resume; the PDF is a first-class output, not an afterthought.
+
+   The old site printed with NO email, NO phone, NO location and NO job title:
+   the contact block was config-disabled and the title sat inside a .no-print
+   wrapper. All four are fixed in the components.
+
+   The forced light rendering below is load-bearing. The old site was
+   light-only, so print was safe by accident. Adding a dark palette means a
+   visitor whose OS is in dark mode would otherwise print white-on-black --
+   burning a toner cartridge or, more likely, producing an unreadable PDF.
+--------------------------------------------------------------------------- */
+@media print {
+  :root {
+    color-scheme: light;
+    --color-ink: #000;
+    --color-ink-muted: #333;
+    --color-paper: #fff;
+    --color-rule: #999;
+    --color-accent: #000;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  @page {
+    margin: 0.5in;
+  }
+
+  /* Keep headings with their content and never split an entry across pages. */
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+  .resume-item {
+    break-inside: avoid;
+  }
+
+  /*
+     Phone number, injected from CSS rather than markup.
+
+     Rationale: anything that appears on the printed page has to live in a
+     file the public can fetch. Putting it here instead of in the HTML keeps
+     it out of the page source and out of the structured data -- the two
+     places scrapers actually read. It is still present in this stylesheet,
+     which is public. That is a real limitation, not a hiding place: this
+     reduces casual harvesting, it does not make the number private.
+
+     Single source of truth note: this duplicates site.contact.phone in
+     src/data/site.ts, because a plain .css file cannot import from TypeScript.
+     If you change one, change the other.
+  */
+  .print-phone::after {
+    content: '719.229.7102';
+  }
+
+  /* A URL is useless on paper unless it's spelled out. Scoped to project and
+     association titles only -- applying it to every link would append
+     "(mailto:...)" after the email address. */
+  .print-expand-url a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    font-weight: 400;
+    word-break: break-all;
+  }
+}
+
+/* Rendered markdown bodies (experience/education) and award lists. */
+@layer components {
+  .resume-copy ul,
+  .resume-list {
+    list-style: disc;
+    margin: 0.5rem 0 0;
+    padding-left: 1.4rem;
+  }
+
+  .resume-copy li,
+  .resume-list li {
+    margin-bottom: 0.3rem;
+  }
+
+  .resume-copy p {
+    margin: 0 0 0.5rem;
+  }
+
+  .resume-copy > :last-child {
+    margin-bottom: 0;
+  }
+
+  @media print {
+    .resume-copy ul,
+    .resume-list {
+      margin-top: 0.2rem;
+      padding-left: 1.1rem;
+    }
+    .resume-copy li,
+    .resume-list li {
+      margin-bottom: 0.1rem;
+    }
+  }
+}

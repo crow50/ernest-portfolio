@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  url?: string | undefined;
+  meta?: string | undefined;
+  /** Spell the URL out in print. Only for items whose link is worth having on paper. */
+  expandUrlInPrint?: boolean;
+}
+const { title, url, meta, expandUrlInPrint = false } = Astro.props;
+---
+
+<article class="resume-item mb-7 print:mb-3">
+  <h3
+    class:list={[
+      'font-sans font-bold text-xl tracking-tight m-0 print:text-[11pt]',
+      expandUrlInPrint && 'print-expand-url',
+    ]}
+  >
+    {
+      url ? (
+        <a
+          href={url}
+          class="text-[--color-ink] underline decoration-[--color-rule] underline-offset-4 hover:decoration-[--color-accent]"
+        >
+          {title}
+        </a>
+      ) : (
+        title
+      )
+    }
+  </h3>
+
+  {
+    meta && (
+      <p class="text-[--color-ink-muted] text-base mt-1 mb-0 print:text-[9.5pt] print:italic">
+        {meta}
+      </p>
+    )
+  }
+
+  {/*
+    <slot> renders into a <div>, never a <p>. The old template put markdownified
+    HTML (which contains block-level <p> and <ul>) inside a <p>, producing
+    7 nested <p>-in-<p> and 13 <ul>-in-<p> -- invalid markup that Astro 7's
+    compiler now rejects outright.
+  */}
+  <div class="resume-copy mt-2 print:mt-1">
+    <slot />
+  </div>
+</article>

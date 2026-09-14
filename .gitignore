@@ -48,3 +48,8 @@ vendor/
 .classpath
 module-info.java
 package-info.java
+
+# Node / Astro
+node_modules/
+dist/
+.astro/

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="404 — Not found" noindex>
+  <main class="mx-auto max-w-[46rem] px-6 min-h-[60vh] flex flex-col justify-center">
+    <h1 class="font-sans font-extrabold text-5xl tracking-tight m-0">404</h1>
+    <p class="text-lg mt-3">
+      That page doesn't exist.
+      <a href="/" class="text-[--color-accent] underline underline-offset-4">Head back to the resume</a>.
+    </p>
+  </main>
+  <Footer />
+</BaseLayout>

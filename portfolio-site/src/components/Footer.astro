@@ -1,0 +1,11 @@
+---
+// Year is computed at build time -- the old footer was hardcoded to "&copy 2025"
+// (also missing the entity semicolon) and went stale.
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t-4 border-[--color-rule] pt-5 pb-12 text-center print:hidden">
+  <p class="text-sm text-[--color-ink-muted] m-0">
+    &copy; {year} Ernest Baker. All rights reserved.
+  </p>
+</footer>
