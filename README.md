@@ -23,7 +23,7 @@
 
 ## 👋 [Welcome to my Portfolio](https://ernestbaker.me)
 
-I'm Ernest, a **Senior Systems Analyst** transitioning into **DevSecOps Engineering** with 10+ years in systems analysis, administration, and automation. I build automated infrastructure and CI/CD pipelines with security built in from the start: secrets scanning, container hardening, and software supply-chain analysis. This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
+I'm Ernest, a **Senior Systems Analyst** transitioning into **DevSecOps Engineering** with 10+ years in systems analysis, administration, and automation. I build automated infrastructure and CI/CD pipelines This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
 
 ---
 
