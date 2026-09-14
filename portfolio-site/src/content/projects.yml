@@ -1,6 +1,3 @@
-# 'description' is plain text and is rendered as a bare expression.
-# Do NOT markdown-render it -- see src/content.config.ts.
-# NOTE: the DOE script url points into previous-experience/ -- do not move that directory.
 - id: container-vulnerability-scanning-with-trivy
   project: Container Vulnerability Scanning with Trivy
   role: Developer

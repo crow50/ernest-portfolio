@@ -12,35 +12,26 @@ export default defineConfig({
   ],
 
   security: {
-    // Astro emits a <meta http-equiv="content-security-policy"> per page with
-    // script-src/style-src hashes for its OWN bundled assets. Stable since
-    // Astro 6 -- note it lives under `security`, not at the top level.
-    //
-    // public/_headers (Ernest, phase 4) carries what Astro cannot know about:
-    // frame-ancestors, HSTS, Referrer-Policy, Permissions-Policy, X-Robots-Tag.
-    // Both policies apply; the browser enforces the intersection.
+    // Emits a <meta http-equiv="content-security-policy"> per page, hashing
+    // Astro's own bundled scripts and styles. The key lives under `security`,
+    // not at the top level. public/_headers carries the rest; where both set a
+    // directive the browser enforces the intersection.
     csp: {
       scriptDirective: {
-        // REQUIRED for the phase 4 console breadcrumb. Astro does not cover
-        // external scripts by default, so a plain /hello.js would be blocked
-        // by Astro's own meta CSP even though _headers allows it. Adding
-        // 'self' here is what makes the external-file approach work and keeps
-        // us off the brittle inline-hash path.
+        // Astro's meta CSP does not cover external scripts by default, so
+        // without this /hello.js is blocked even when _headers allows it.
         resources: ["'self'"],
       },
     },
   },
 
   build: {
-    // LOAD-BEARING. Astro's default ('auto') inlines small stylesheets into
-    // <style> tags. Keeping them external is what lets _headers ship a
-    // style-src without 'unsafe-inline'. Changing this silently unstyles
-    // the site under CSP.
+    // Keeps stylesheets external so style-src needs no 'unsafe-inline'.
+    // Setting this back to 'auto' renders the site unstyled under CSP.
     inlineStylesheets: 'never',
   },
 
-  // Self-hosted at build time: no render-blocking request to Google, no
-  // third-party origin in the CSP, and automatic fallback metrics for CLS.
+  // Downloaded and self-hosted at build time, so font-src stays 'self'.
   fonts: [
     {
       provider: fontProviders.google(),

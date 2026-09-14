@@ -21,8 +21,7 @@
     color: var(--color-ink);
   }
 
-  /* Dark palette. Contrast targets: body text >= 7:1, muted >= 4.5:1 on the
-     dark ground -- the old theme's #999-on-white footer failed AA at 2.85:1. */
+  /* Dark palette. Body text >= 7:1, muted >= 4.5:1 against the dark ground. */
   @media (prefers-color-scheme: dark) {
     :root {
       --color-ink: #e8e6e3;
@@ -38,7 +37,6 @@
     line-height: 1.6;
   }
 
-  /* Visible keyboard focus. The old theme had none. */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
@@ -47,16 +45,9 @@
 
 /* ---------------------------------------------------------------------------
    PRINT
-   This is a resume; the PDF is a first-class output, not an afterthought.
 
-   The old site printed with NO email, NO phone, NO location and NO job title:
-   the contact block was config-disabled and the title sat inside a .no-print
-   wrapper. All four are fixed in the components.
-
-   The forced light rendering below is load-bearing. The old site was
-   light-only, so print was safe by accident. Adding a dark palette means a
-   visitor whose OS is in dark mode would otherwise print white-on-black --
-   burning a toner cartridge or, more likely, producing an unreadable PDF.
+   The forced light palette below is load-bearing. Without it a visitor whose
+   OS is in dark mode prints white-on-black and gets an unreadable PDF.
 --------------------------------------------------------------------------- */
 @media print {
   :root {
@@ -90,26 +81,19 @@
   }
 
   /*
-     Phone number, injected from CSS rather than markup.
+     Injected here rather than in markup so the number stays out of the page
+     source and the structured data. It is still in this stylesheet, which is
+     public -- this reduces casual harvesting, it does not make it private.
 
-     Rationale: anything that appears on the printed page has to live in a
-     file the public can fetch. Putting it here instead of in the HTML keeps
-     it out of the page source and out of the structured data -- the two
-     places scrapers actually read. It is still present in this stylesheet,
-     which is public. That is a real limitation, not a hiding place: this
-     reduces casual harvesting, it does not make the number private.
-
-     Single source of truth note: this duplicates site.contact.phone in
-     src/data/site.ts, because a plain .css file cannot import from TypeScript.
-     If you change one, change the other.
+     Duplicates site.contact.phone in src/data/site.ts, since a .css file
+     cannot import from TypeScript. Change both.
   */
   .print-phone::after {
     content: '719.229.7102';
   }
 
-  /* A URL is useless on paper unless it's spelled out. Scoped to project and
-     association titles only -- applying it to every link would append
-     "(mailto:...)" after the email address. */
+  /* Spell out URLs on paper. Scoped to project and association titles only,
+     since applying it everywhere appends "(mailto:...)" to the email. */
   .print-expand-url a[href^='http']::after {
     content: ' (' attr(href) ')';
     font-size: 0.85em;

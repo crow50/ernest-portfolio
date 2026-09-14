@@ -42,16 +42,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     {
-      /* JSON-LD is a data block, not executable script, so CSP script-src
-         does not apply to it. Deliberately omits the phone number. */
+      /* A data block, not executable script, so CSP script-src does not
+         apply. Carries no phone number. */
       jsonLd && (
         <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
       )
     }
 
-    {/* Phase 4 (Ernest): breadcrumb (b) mounts here --
-       <script src="/hello.js" defer is:inline></script>
-       Kept out until the file exists so Phase 1 ships zero JS. */}
+    {/* <script src="/hello.js" defer is:inline></script> once public/hello.js
+       exists. Until then the page ships no JavaScript. */}
   </head>
 
   <body class="bg-[--color-paper] text-[--color-ink]">

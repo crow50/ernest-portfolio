@@ -3,7 +3,6 @@ interface Props {
   title: string;
   url?: string | undefined;
   meta?: string | undefined;
-  /** Spell the URL out in print. Only for items whose link is worth having on paper. */
   expandUrlInPrint?: boolean;
 }
 const { title, url, meta, expandUrlInPrint = false } = Astro.props;
@@ -38,12 +37,6 @@ const { title, url, meta, expandUrlInPrint = false } = Astro.props;
     )
   }
 
-  {/*
-    <slot> renders into a <div>, never a <p>. The old template put markdownified
-    HTML (which contains block-level <p> and <ul>) inside a <p>, producing
-    7 nested <p>-in-<p> and 13 <ul>-in-<p> -- invalid markup that Astro 7's
-    compiler now rejects outright.
-  */}
   <div class="resume-copy mt-2 print:mt-1">
     <slot />
   </div>

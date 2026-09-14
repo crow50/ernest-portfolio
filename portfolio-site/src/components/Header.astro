@@ -9,11 +9,6 @@ import PrintContact from './PrintContact.astro';
     {site.name}
   </h1>
 
-  {/*
-    The job title sits OUTSIDE any print:hidden wrapper. In the old template it
-    lived inside <div class="title-bar no-print">, so the printed resume had no
-    job title on it at all.
-  */}
   <p class="font-sans font-light text-xl sm:text-2xl text-center mt-2 mb-0 text-[--color-ink-muted] print:text-[12pt] print:mt-1">
     {site.title}
   </p>

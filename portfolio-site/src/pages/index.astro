@@ -24,7 +24,7 @@ const educationRendered = await Promise.all(
   education.map(async (e) => ({ ...e, Content: (await render(e)).Content })),
 );
 
-// Deliberately omits telephone -- see src/data/site.ts.
+// Carries no telephone. See src/data/site.ts.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -83,8 +83,6 @@ const jsonLd = {
       {
         educationRendered.map(({ data, Content }) => (
           <ResumeItem title={data.uni} meta={`${data.degree} • ${data.year}`}>
-            {/* Renders nothing when empty -- the old template emitted an empty
-                <h5> and an empty <ul> for all 7 entries. */}
             {data.awards.length > 0 && (
               <ul class="resume-list">
                 {data.awards.map((a) => (

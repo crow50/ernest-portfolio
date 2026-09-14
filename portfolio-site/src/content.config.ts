@@ -3,17 +3,15 @@ import { glob, file } from 'astro/loaders';
 
 /**
  * YAML distinguishes "key absent" (undefined) from "key present but empty" (null).
- * A bare z.string().url().optional() accepts the first and throws on the second:
- *   Expected string, received null
- * The old _data/associations.yml had exactly that shape. The migration stripped it,
- * but this keeps the build green if an empty `url:` is ever typed back in.
+ * A bare z.string().url().optional() accepts the first and throws on the second
+ * with `Expected string, received null`, so an empty `url:` would fail the build.
  */
 const optionalUrl = z.preprocess(
   (v) => (v === '' || v === null ? undefined : v),
   z.string().url().optional(),
 );
 
-/** Markdown-bearing: the `.md` body IS the content, rendered via render(). */
+/** Markdown-bearing: the `.md` body is the content, rendered via render(). */
 const experience = defineCollection({
   loader: glob({ base: './src/content/experience', pattern: '**/*.md' }),
   schema: z.object({
@@ -31,16 +29,11 @@ const education = defineCollection({
     uni: z.string(),
     year: z.string(), // "May, 2027" is not a parseable date
     order: z.number().int().positive(),
-    /**
-     * The old template read `education.award` (singular), which existed in zero
-     * records -- that produced 7 empty <h5> elements on every build. The plural
-     * field is the real one; render it only when non-empty.
-     */
     awards: z.array(z.string()).default([]),
   }),
 });
 
-/** Plain-text: rendered as bare expressions, never markdown-parsed. */
+/** Plain text. Rendered as bare expressions, never markdown-parsed. */
 const projects = defineCollection({
   loader: file('./src/content/projects.yml'),
   schema: z.object({
