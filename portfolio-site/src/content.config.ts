@@ -64,13 +64,4 @@ const associations = defineCollection({
   }),
 });
 
-/** Terminal-only. Never queried by index.astro. */
-const notes = defineCollection({
-  loader: glob({ base: './src/content/notes', pattern: '**/*.md' }),
-  schema: z.object({
-    path: z.string().startsWith('/home/ernest/'),
-    title: z.string(),
-  }),
-});
-
-export const collections = { experience, education, projects, skills, associations, notes };
+export const collections = { experience, education, projects, skills, associations };
