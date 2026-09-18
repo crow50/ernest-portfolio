@@ -17,11 +17,9 @@ jobs:
           fetch-depth: 0
       - name: Fetch all tags and branches
         run: |
-          git fetch --prune --unshallow || true
+          git fetch --prune || true
           git fetch --all --tags
       - uses: gitleaks/gitleaks-action@v2
-        with:
-          args: detect --source . --redact --no-banner --report-format sarif --report-path gitleaks.sarif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -30,5 +28,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
-          sarif_file: 'gitleaks.sarif'
+          sarif_file: 'gitleaks-results.sarif'
           category: 'gitleaks-scan'
