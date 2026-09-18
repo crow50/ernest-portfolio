@@ -2,13 +2,10 @@ name: Gitleaks Scan
 
 on:
   push:
-  pull_request:
-    branches:
-      - main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   scan:
@@ -24,14 +21,14 @@ jobs:
           git fetch --all --tags
       - uses: gitleaks/gitleaks-action@v2
         with:
-          args: detect --source . --redact --no-banner --report-format json --report-path gitleaks.json
+          args: detect --source . --redact --no-banner --report-format sarif --report-path gitleaks.sarif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Gitleaks Report
-        uses: actions/upload-artifact@v7
+        # Uploading SARIF report to GitHub Security tab
+      - name: Upload Gitleaks scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
-          name: gitleaks-report
-          path: gitleaks.json
-          retention-days: 7
+          sarif_file: 'gitleaks.sarif'
+          category: 'gitleaks-scan'

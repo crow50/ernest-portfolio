@@ -15,7 +15,7 @@
 | DevSecOps | Automation | CI/CD |
 |:-----------:|:------------:|:-------:|
 | [![Gitleaks Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/gitleaks-scanning.yml) | [![Dependabot Updates](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/dependabot/dependabot-updates) | [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?logo=cloudflare&logoColor=white)](https://ernestbaker.me) |
-| [![Trivy Container Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml) | [![Bundle Audit](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/bundle-audit.yml) | [![Docker Build](https://img.shields.io/github/actions/workflow/status/crow50/ernest-portfolio/build-and-push-container.yml?label=Docker%20Build&logo=docker)](https://github.com/crow50/ernest-portfolio/actions/workflows/build-and-push-container.yml) |
+| [![Trivy Container Scan](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/trivy-scanning.yaml) | [![CI](https://github.com/crow50/ernest-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/crow50/ernest-portfolio/actions/workflows/ci.yml) | [![Docker Build](https://img.shields.io/github/actions/workflow/status/crow50/ernest-portfolio/build-and-push-container.yml?label=Docker%20Build&logo=docker)](https://github.com/crow50/ernest-portfolio/actions/workflows/build-and-push-container.yml) |
 
 </div>
 
@@ -23,7 +23,7 @@
 
 ## 👋 [Welcome to my Portfolio](https://ernestbaker.me)
 
-I'm Ernest, a **Senior Systems Analyst** transitioning into **DevSecOps Engineering** with 10+ years in systems analysis, administration, and automation. I build automated infrastructure and CI/CD pipelines This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
+I'm Ernest, a **DevSecOps Engineer** with 10+ years in systems analysis, administration, and automation. I build automated infrastructure and CI/CD pipelines This repo powers my portfolio site and showcases projects demonstrating **automation, CI/CD workflows, and system reliability**.
 
 ---
 
