@@ -1,0 +1,61 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  jsonLd?: object;
+}
+
+const {
+  title = site.siteTitle,
+  description = site.description,
+  noindex = false,
+  jsonLd,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <Font cssVariable="--font-lora" preload />
+    <Font cssVariable="--font-open-sans" preload />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site).href} />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    {
+      /* A data block, not executable script, so CSP script-src does not
+         apply. Carries no phone number. */
+      jsonLd && (
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      )
+    }
+
+    {/* <script src="/hello.js" defer is:inline></script> once public/hello.js
+       exists. Until then the page ships no JavaScript. */}
+  </head>
+
+  <body class="bg-[--color-paper] text-[--color-ink]">
+    <slot />
+  </body>
+</html>

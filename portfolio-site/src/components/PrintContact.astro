@@ -1,0 +1,22 @@
+---
+import { site } from '../data/site';
+const { email, location } = site.contact;
+const { github, linkedin } = site.social;
+---
+
+<div class="hidden print:block text-center text-[10pt] mt-1 text-[--color-ink]">
+  <span>{email}</span>
+  <span aria-hidden="true"> · </span>
+  {/* Text comes from .print-phone::after in global.css, not from here. */}
+  <span class="print-phone"></span>
+  <span aria-hidden="true"> · </span>
+  <span>{location}</span>
+  <span aria-hidden="true"> · </span>
+  <span>ernestbaker.me</span>
+</div>
+
+<div class="hidden print:block text-center text-[9pt] mt-0.5 text-[--color-ink-muted]">
+  <span>{github.replace('https://', '')}</span>
+  <span aria-hidden="true"> · </span>
+  <span>{linkedin.replace('https://www.', '')}</span>
+</div>

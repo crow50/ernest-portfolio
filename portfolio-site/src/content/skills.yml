@@ -1,0 +1,24 @@
+- id: devsecops-ci-cd
+  skill: DevSecOps & CI/CD
+  description: Git, GitHub Actions, GitHub Advanced Security, Gitleaks, Trivy, Syft, Grype, Pre-Commit Hooks, SBOM Generation, CVE/CVSS Vulnerability Analysis, Applied ML for Security Scoring
+- id: systems-engineering-governance
+  skill: Systems Engineering & Governance
+  description: IT Governance, Infrastructure & Network Design, Project Management, Requirements Gathering, UAT, Digital Transformation
+- id: automation-programming
+  skill: Automation & Programming
+  description: Python, Bash, C++, Java, SQL, YAML, Markdown
+- id: platforms-virtualization-cloud
+  skill: Platforms, Virtualization & Cloud
+  description: Linux, Windows Server, VMware, Proxmox, Docker, Kubernetes (k3s), Digital Ocean, nginx, vsftpd
+- id: networking-security-tools
+  skill: Networking & Security Tools
+  description: nmap, Wireshark, VLANs, Subnetting, VPNs, Load Balancing, Hardware MFA (YubiKey), TCP/IP
+- id: infrastructure-automation
+  skill: Infrastructure Automation
+  description: Traefik, n8n, Pi-hole, Homelab Design & Deployment
+- id: database-management
+  skill: Database Management
+  description: SQL Server, Oracle, MySQL, PostgreSQL
+- id: tools-applications
+  skill: Tools & Applications
+  description: Itron FDM, Fixed Network 100, OpenWay, SSMS, Oracle Billing & MDM, Cherwell

@@ -1,0 +1,15 @@
+# Security headers for Cloudflare Pages.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+
+# --- Phase 5: uncomment when /dev ships ---
+#
+#  X-Shell: /dev
+#
+#/dev/*
+#  X-Robots-Tag: noindex, nofollow

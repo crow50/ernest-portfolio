@@ -1,0 +1,38 @@
+---
+import { site } from '../data/site';
+import IconLinks from './IconLinks.astro';
+import PrintContact from './PrintContact.astro';
+---
+
+<header class="pt-10 pb-6">
+  <h1 class="font-sans font-extrabold tracking-tight text-4xl sm:text-5xl text-center m-0">
+    {site.name}
+  </h1>
+
+  <p class="font-sans font-light text-xl sm:text-2xl text-center mt-2 mb-0 text-[--color-ink-muted] print:text-[12pt] print:mt-1">
+    {site.title}
+  </p>
+
+  <PrintContact />
+
+  <div
+    class="flex justify-center mt-5 pt-5 border-t border-[--color-rule] print:hidden"
+  >
+    <IconLinks />
+  </div>
+
+  <p class="mt-6 text-base sm:text-lg text-pretty print:mt-3 print:text-[10.5pt]">
+    {site.intro}
+  </p>
+
+  {
+    site.lookingForWork && (
+      <a
+        href={`mailto:${site.contact.email}`}
+        class="print:hidden mt-6 block w-full sm:w-64 mx-auto text-center font-sans rounded py-3 border border-[--color-rule] text-[--color-ink] no-underline hover:bg-[--color-ink] hover:text-[--color-paper] transition-colors"
+      >
+        Contact me
+      </a>
+    )
+  }
+</header>

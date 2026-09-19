@@ -1,18 +1,16 @@
 name: Trivy Container Scan
 
 on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight
   push:
-    paths:
-      - '**/Dockerfile'
-      - '**/.dockerignore'
-      - 'portfolio-site/**'
+    branches:
+      - main
   pull_request:
     paths:
       - '**/Dockerfile'
       - '**/.dockerignore'
       - 'portfolio-site/**'
-    branches:
-      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

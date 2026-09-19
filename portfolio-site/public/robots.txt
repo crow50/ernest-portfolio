@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# --- Phase 5: uncomment when /dev ships ---
+# Disallow: /dev/
+
+Sitemap: https://ernestbaker.me/sitemap-index.xml

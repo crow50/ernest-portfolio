@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: var(--font-lora), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-open-sans), system-ui, -apple-system, sans-serif;
+
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #565656;
+  --color-paper: #ffffff;
+  --color-rule: #d4d4d4;
+  --color-accent: #1f4e79;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  /* Dark palette. Body text >= 7:1, muted >= 4.5:1 against the dark ground. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-ink: #e8e6e3;
+      --color-ink-muted: #a8a49f;
+      --color-paper: #16181c;
+      --color-rule: #343841;
+      --color-accent: #7fb3e8;
+    }
+  }
+
+  body {
+    font-family: var(--font-serif);
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   PRINT
+
+   The forced light palette below is load-bearing. Without it a visitor whose
+   OS is in dark mode prints white-on-black and gets an unreadable PDF.
+--------------------------------------------------------------------------- */
+@media print {
+  :root {
+    color-scheme: light;
+    --color-ink: #000;
+    --color-ink-muted: #333;
+    --color-paper: #fff;
+    --color-rule: #999;
+    --color-accent: #000;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  @page {
+    margin: 0.5in;
+  }
+
+  /* Keep headings with their content and never split an entry across pages. */
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+  .resume-item {
+    break-inside: avoid;
+  }
+
+  /*
+     Injected here rather than in markup so the number stays out of the page
+     source and the structured data. It is still in this stylesheet, which is
+     public -- this reduces casual harvesting, it does not make it private.
+
+     Duplicates site.contact.phone in src/data/site.ts, since a .css file
+     cannot import from TypeScript. Change both.
+  */
+  .print-phone::after {
+    content: '719.229.7102';
+  }
+
+  /* Spell out URLs on paper. Scoped to project and association titles only,
+     since applying it everywhere appends "(mailto:...)" to the email. */
+  .print-expand-url a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    font-weight: 400;
+    word-break: break-all;
+  }
+}
+
+/* Rendered markdown bodies (experience/education) and award lists. */
+@layer components {
+  .resume-copy ul,
+  .resume-list {
+    list-style: disc;
+    margin: 0.5rem 0 0;
+    padding-left: 1.4rem;
+  }
+
+  .resume-copy li,
+  .resume-list li {
+    margin-bottom: 0.3rem;
+  }
+
+  .resume-copy p {
+    margin: 0 0 0.5rem;
+  }
+
+  .resume-copy > :last-child {
+    margin-bottom: 0;
+  }
+
+  @media print {
+    .resume-copy ul,
+    .resume-list {
+      margin-top: 0.2rem;
+      padding-left: 1.1rem;
+    }
+    .resume-copy li,
+    .resume-list li {
+      margin-bottom: 0.1rem;
+    }
+  }
+}
