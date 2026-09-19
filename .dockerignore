@@ -1,4 +1,5 @@
 .github/
+.git/
 .gitignore
 .dockerignore
 .pre-commit-config.yaml
@@ -6,3 +7,10 @@ previous-experience/
 Dockerfile
 README.md
 LICENSE
+
+# Build artifacts and installed deps. node_modules in particular must stay
+# out: npm ci runs inside the image, and copying a host tree over it both
+# bloats the context and can mask a broken lockfile.
+portfolio-site/node_modules/
+portfolio-site/dist/
+portfolio-site/.astro/
