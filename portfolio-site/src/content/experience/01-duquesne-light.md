@@ -1,7 +1,7 @@
 ---
 company: "Duquesne Light Company, Information Technology"
 position: "Software and Systems Analyst III (Metering and Applications Team)"
-duration: "November 2021 to Present"
+duration: "November 2021 to March 2024"
 order: 1
 ---
 
