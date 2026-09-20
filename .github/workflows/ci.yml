@@ -21,10 +21,10 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@db0fb3a98ed314b69026b6e8c9be26a7e2fe65a8 # 7.0.0
         with:
           node-version-file: 'portfolio-site/.nvmrc'
           cache: 'npm'
@@ -39,7 +39,7 @@ jobs:
 
       - name: Create issue on failure
         if: failure()
-        uses: JasonEtco/create-an-issue@v2
+        uses: JasonEtco/create-an-issue@56fdd2d6f960e970fa9d5ca3cf3884b6ba5af477 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-npm-audit.md
           update-existing: true
@@ -58,10 +58,10 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@db0fb3a98ed314b69026b6e8c9be26a7e2fe65a8 # 7.0.0
         with:
           node-version-file: 'portfolio-site/.nvmrc'
           cache: 'npm'
@@ -75,7 +75,7 @@ jobs:
 
       - name: Create issue on failure
         if: failure()
-        uses: JasonEtco/create-an-issue@v2
+        uses: JasonEtco/create-an-issue@56fdd2d6f960e970fa9d5ca3cf3884b6ba5af477 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-astro-check.md
           update-existing: true
@@ -92,10 +92,10 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@db0fb3a98ed314b69026b6e8c9be26a7e2fe65a8 # 7.0.0
         with:
           node-version-file: 'portfolio-site/.nvmrc'
           cache: 'npm'
@@ -109,7 +109,7 @@ jobs:
 
       - name: Create issue on failure
         if: failure()
-        uses: JasonEtco/create-an-issue@v2
+        uses: JasonEtco/create-an-issue@56fdd2d6f960e970fa9d5ca3cf3884b6ba5af477 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-build.md
           update-existing: true

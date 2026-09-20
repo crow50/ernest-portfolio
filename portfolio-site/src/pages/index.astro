@@ -35,7 +35,7 @@ const jsonLd = {
   address: { '@type': 'PostalPlace', name: site.contact.location },
   sameAs: [site.social.github, site.social.linkedin],
   alumniOf: education.map((e) => ({ '@type': 'EducationalOrganization', name: e.data.uni })),
-  worksFor: { '@type': 'Organization', name: experience[0]?.data.company },
+  # worksFor: { '@type': 'Organization', name: experience[0]?.data.company },
 };
 ---
 

@@ -7,7 +7,7 @@ export const site = {
     'Senior Systems Analyst turned DevSecOps Engineer. Container scanning, SBOMs, secrets detection, and ten years automating utility infrastructure. Army veteran.',
 
   intro:
-    "I'm a DevSecOps Engineer, with ten years in systems analysis, network administration, and process automation. I work on secrets scanning, container hardening, and software supply-chain analysis for the pipelines I build. I'm an Army veteran, and I'm finishing a cyber security degree at Stetson.",
+    "I'm a DevSecOps Engineer with ten years in systems analysis, network administration, and process automation. I work on secrets scanning, container hardening, and software supply-chain analysis for the pipelines I build. I'm an Army veteran, and I'm finishing a cyber security degree at Stetson.",
 
   contact: {
     email: 'ernestleroybaker@gmail.com',
