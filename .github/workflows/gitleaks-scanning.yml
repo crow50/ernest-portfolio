@@ -25,7 +25,7 @@ jobs:
 
         # Uploading SARIF report to GitHub Security tab
       - name: Upload Gitleaks scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@977e6ceaea7361825998245d787fa3b4d6b9e5df # v2.27.0
+        uses: github/codeql-action/upload-sarif@977e6ceaea7361825998245d787fa3b4d6b9e5df # v4.37.10
         if: always()
         with:
           sarif_file: 'results.sarif'
