@@ -32,7 +32,7 @@ jobs:
 
         # Building the Docker image to be scanned
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # 4.4.1
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
 
       - name: Build Docker image
         run: docker build -t ernest-portfolio:${{ github.sha }} .
@@ -41,7 +41,7 @@ jobs:
         # Step will normally fail if CRITICAL or HIGH severity vulnerabilities are found
         # SHA Pinning prevents release jacking https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23
       - name: Run Trivy scan
-        uses: aquasecurity/trivy-action@d2a0b60797ff03db6132bd4e2b293f9b37081297 # v.0.36.0
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: ernest-portfolio:${{ github.sha }}
           format: table
@@ -51,7 +51,7 @@ jobs:
 
         # Generating SARIF report with Trivy
       - name: Run Trivy and generate SARIF report
-        uses: aquasecurity/trivy-action@d2a0b60797ff03db6132bd4e2b293f9b37081297 # v.0.36.0
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         if: always()
         with:
           image-ref: ernest-portfolio:${{ github.sha }}
@@ -62,7 +62,7 @@ jobs:
 
         # Uploading SARIF report to GitHub Security tab
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@a7afe0a2d717fe23bf93c8d8239d4f43c4a40f02 # v2.27.0
+        uses: github/codeql-action/upload-sarif@977e6ceaea7361825998245d787fa3b4d6b9e5df # v2.27.0
         if: always()
         with:
           sarif_file: 'trivy-container-results.sarif'

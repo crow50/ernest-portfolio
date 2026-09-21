@@ -19,13 +19,13 @@ jobs:
         run: |
           git fetch --prune || true
           git fetch --all --tags
-      - uses: gitleaks/gitleaks-action@bcfb9cce635345aac9996cedc19b2de8e01b894f # v3.0.0
+      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
         # Uploading SARIF report to GitHub Security tab
       - name: Upload Gitleaks scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@a7afe0a2d717fe23bf93c8d8239d4f43c4a40f02 # v2.27.0
+        uses: github/codeql-action/upload-sarif@977e6ceaea7361825998245d787fa3b4d6b9e5df # v2.27.0
         if: always()
         with:
           sarif_file: 'results.sarif'
