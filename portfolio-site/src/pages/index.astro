@@ -1,0 +1,115 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Section from '../components/Section.astro';
+import ResumeItem from '../components/ResumeItem.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) =>
+  a.data.order - b.data.order;
+
+const experience = (await getCollection('experience')).sort(byOrder);
+const education = (await getCollection('education')).sort(byOrder);
+const projects = await getCollection('projects');
+const skills = await getCollection('skills');
+const associations = await getCollection('associations');
+
+// Markdown collections need rendering; plain-text ones are interpolated directly.
+const experienceRendered = await Promise.all(
+  experience.map(async (e) => ({ ...e, Content: (await render(e)).Content })),
+);
+const educationRendered = await Promise.all(
+  education.map(async (e) => ({ ...e, Content: (await render(e)).Content })),
+);
+
+// Carries no telephone. See src/data/site.ts.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.title,
+  email: `mailto:${site.contact.email}`,
+  url: site.social.website,
+  address: { '@type': 'PostalPlace', name: site.contact.location },
+  sameAs: [site.social.github, site.social.linkedin],
+  alumniOf: education.map((e) => ({ '@type': 'EducationalOrganization', name: e.data.uni })),
+};
+---
+
+<BaseLayout jsonLd={jsonLd}>
+  <main class="mx-auto max-w-[46rem] px-6 print:max-w-none print:px-0">
+    <Header />
+
+    <Section title="Projects">
+      {
+        projects.map((p) => (
+          <ResumeItem
+            title={p.data.project}
+            url={p.data.url}
+            meta={`${p.data.role} • ${p.data.duration}`}
+            expandUrlInPrint
+          >
+            <p class="m-0">{p.data.description}</p>
+          </ResumeItem>
+        ))
+      }
+    </Section>
+
+    <Section title="Skills">
+      {
+        skills.map((s) => (
+          <div class="resume-item mb-4 print:mb-2">
+            <h3 class="font-sans font-bold text-lg m-0 print:text-[10.5pt]">{s.data.skill}</h3>
+            <p class="m-0 text-[--color-ink-muted] print:text-[9.5pt]">{s.data.description}</p>
+          </div>
+        ))
+      }
+    </Section>
+
+    <Section title="Experience">
+      {
+        experienceRendered.map(({ data, Content }) => (
+          <ResumeItem title={data.company} meta={`${data.position} • ${data.duration}`}>
+            <Content />
+          </ResumeItem>
+        ))
+      }
+    </Section>
+
+    <Section title="Education">
+      {
+        educationRendered.map(({ data, Content }) => (
+          <ResumeItem title={data.uni} meta={`${data.degree} • ${data.year}`}>
+            {data.awards.length > 0 && (
+              <ul class="resume-list">
+                {data.awards.map((a) => (
+                  <li>{a}</li>
+                ))}
+              </ul>
+            )}
+            <Content />
+          </ResumeItem>
+        ))
+      }
+    </Section>
+
+    <Section title="Associations">
+      {
+        associations.map((a) => (
+          <ResumeItem
+            title={a.data.organization}
+            url={a.data.url}
+            meta={`${a.data.role} • ${a.data.year}`}
+            expandUrlInPrint
+          >
+            <p class="m-0">{a.data.summary}</p>
+          </ResumeItem>
+        ))
+      }
+    </Section>
+
+    <Footer />
+  </main>
+</BaseLayout>

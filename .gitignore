@@ -33,18 +33,7 @@ env/
 ENV/
 env.bak/
 
-# Jekyll build
-_site/
-.jekyll-cache/
-
-# Ruby
-*.gem
-.bundle/
-vendor/
-
-# Eclipse project files
-.project
-.settings/
-.classpath
-module-info.java
-package-info.java
+# Node / Astro
+node_modules/
+dist/
+.astro/

@@ -2,36 +2,31 @@ name: Gitleaks Scan
 
 on:
   push:
-  pull_request:
-    branches:
-      - main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   scan:
     name: gitleaks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - name: Fetch all tags and branches
         run: |
-          git fetch --prune --unshallow || true
+          git fetch --prune || true
           git fetch --all --tags
-      - uses: gitleaks/gitleaks-action@v2
-        with:
-          args: detect --source . --redact --no-banner --report-format json --report-path gitleaks.json
+      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Gitleaks Report
-        uses: actions/upload-artifact@v7
+        # Uploading SARIF report to GitHub Security tab
+      - name: Upload Gitleaks scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@977e6ceaea7361825998245d787fa3b4d6b9e5df # v4.38.1
         if: always()
         with:
-          name: gitleaks-report
-          path: gitleaks.json
-          retention-days: 7
+          sarif_file: 'results.sarif'
+          category: 'gitleaks-scan'

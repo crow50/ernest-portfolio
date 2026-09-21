@@ -1,0 +1,29 @@
+---
+import { site } from '../data/site';
+import GitHub from './icons/GitHub.astro';
+import LinkedIn from './icons/LinkedIn.astro';
+import Website from './icons/Website.astro';
+
+const links = [
+  { href: site.social.github, label: 'GitHub profile', Icon: GitHub },
+  { href: site.social.linkedin, label: 'LinkedIn profile', Icon: LinkedIn },
+  { href: site.social.website, label: 'Personal website', Icon: Website },
+];
+---
+
+<ul class="flex gap-4 list-none p-0 m-0 print:hidden">
+  {
+    links.map(({ href, label, Icon }) => (
+      <li>
+        <a
+          href={href}
+          aria-label={label}
+          rel="me noopener"
+          class="block text-[--color-ink-muted] hover:text-[--color-accent] transition-colors"
+        >
+          <Icon />
+        </a>
+      </li>
+    ))
+  }
+</ul>

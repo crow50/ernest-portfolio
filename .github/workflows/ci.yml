@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  npm-audit:
+    name: NPM Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./portfolio-site
+
+    steps:
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'portfolio-site/.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: 'portfolio-site/package-lock.json'
+
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run NPM Audit
+        run: npm audit --audit-level=high --omit=dev
+
+      - name: Create issue on failure
+        if: failure()
+        uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
+        with:
+          filename: .github/workflows/ISSUE_TEMPLATE/ci-npm-audit.md
+          update-existing: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    continue-on-error: true
+
+
+  astro-check:
+    name: Astro Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./portfolio-site
+
+    steps:
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'portfolio-site/.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: 'portfolio-site/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Astro Check
+        run: npx astro check
+
+      - name: Create issue on failure
+        if: failure()
+        uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
+        with:
+          filename: .github/workflows/ISSUE_TEMPLATE/ci-astro-check.md
+          update-existing: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+  npm-build:
+    name: NPM Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./portfolio-site
+
+    steps:
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: 'portfolio-site/.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: 'portfolio-site/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run NPM Build
+        run: npm run build
+
+      - name: Create issue on failure
+        if: failure()
+        uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
+        with:
+          filename: .github/workflows/ISSUE_TEMPLATE/ci-build.md
+          update-existing: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
