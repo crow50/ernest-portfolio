@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build stage. Node is needed to produce dist/ and nothing after that.
-FROM node:25-alpine AS build
+FROM node:26-alpine AS build
 WORKDIR /app
 
 # Manifests first so the dependency layer caches independently of source edits.
