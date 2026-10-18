@@ -42,7 +42,6 @@ jobs:
         uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-npm-audit.md
-          update-existing: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -78,7 +77,6 @@ jobs:
         uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-astro-check.md
-          update-existing: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -112,6 +110,5 @@ jobs:
         uses: JasonEtco/create-an-issue@1b14a70e4d8dc185e5cc76d3bec9eab20257b2c5 # v2.9.2
         with:
           filename: .github/workflows/ISSUE_TEMPLATE/ci-build.md
-          update-existing: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
