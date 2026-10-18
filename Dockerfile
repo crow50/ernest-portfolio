@@ -15,6 +15,12 @@ RUN npm run build
 # nginx-unprivileged runs as uid 101 and listens on 8080, which avoids
 # fighting the root-owned pid and cache paths in the stock nginx image.
 FROM nginxinc/nginx-unprivileged:alpine
+
+# Upgrade base packages to reduce CVEs.
+USER root
+RUN apk --no-cache upgrade
+USER nginx
+
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY portfolio-site/nginx/default.conf /etc/nginx/conf.d/default.conf
 
