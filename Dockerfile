@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build stage. Node is needed to produce dist/ and nothing after that.
-FROM node:26-trixie AS build
+FROM node:26-alpine AS build
 WORKDIR /app
 
 # Manifests first so the dependency layer caches independently of source edits.
@@ -14,7 +14,7 @@ RUN npm run build
 # Runtime stage. Carries dist/ and nginx, no Node and no build toolchain.
 # nginx-unprivileged runs as uid 101 and listens on 8080, which avoids
 # fighting the root-owned pid and cache paths in the stock nginx image.
-FROM nginxinc/nginx-unprivileged:trixie
+FROM nginxinc/nginx-unprivileged:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY portfolio-site/nginx/default.conf /etc/nginx/conf.d/default.conf
 
